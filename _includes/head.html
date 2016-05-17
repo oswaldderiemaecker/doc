@@ -1,0 +1,38 @@
+<head ng-controller="HeadCtrl" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+
+  <base href="/">
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="Content-Type" content="text/html;charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width"/>
+
+  <title ng-content="Head.title()">{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" ng-content="Head.title()" />
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}" ng-content="Head.description()" />
+  <meta name="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}" ng-content="Head.description()" />
+  <meta name="copyright" content="Continuous SA" />
+  <meta name="robots" content="{{ site.robots }}" />
+  <meta name="author" content="Continuous SA" />
+  <meta property="og:site_name" content="continuousphp" />
+  <meta property="fb:app_id" content="{{ site.facebook_appid }}" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />
+  <meta property="og:image" content="{% if page.image %}{{ page.image | prepend: site.baseurl | prepend: site.url }}{% else %}{{ site.image | prepend: site.baseurl | prepend: site.url }}{% endif %}" ng-content="Head.image()" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:widgets:csp" content="on">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@continuousphp" />
+  <meta name="twitter:creator" content="@{% if page.author and site.data.members[page.author].twitter %}{{ site.data.members[page.author].twitter }}{% else %}continuousphp{% endif %}" />
+  <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" ng-content="Head.title()" />
+  <meta name="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}" ng-content="Head.description()" />
+  <meta name="twitter:image" content="{% if page.image %}{{ page.image | prepend: site.baseurl | prepend: site.url }}{% else %}{{ site.image | prepend: site.baseurl | prepend: site.url }}{% endif %}" ng-content="Head.image()" />
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
+  <link rel="shortcut icon" type="/image/vnd.microsoft.icon" href="/favicon.ico"/>
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon-180x180.png"/>
+  <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png"/>
+  <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png"/>
+  <link rel="apple-touch-icon" sizes="144x144" href="/images/apple-touch-icon-144x144.png"/>
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <link rel="dns-prefetch" href="{{ site.api_url }}">
+</head>

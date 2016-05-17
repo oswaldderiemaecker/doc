@@ -1,0 +1,77 @@
+---
+layout:     default
+title:      "Continuous Newsletters"
+excerpt:    "Do you want to be notified about new products and services, software updates and specials? Then join our monthly newsletter. It's a recap of what happened during the past 4 weeks (when we are on schedule to release it!)."
+permalink:  /newsletter/
+---
+
+<section class="site-content resource-list clearfix">
+
+  <div class="row">
+    <div class="columns small-12">
+      <h1>Newsletters</h1>
+    </div>
+  </div>
+
+  <div class="row intro clearfix">
+    <div class="small-12 columns">
+      <p>
+        Do you want to be notified about new products and services, software updates and specials?
+        Then join our monthly newsletter. It's a recap of what happened during the past 4 weeks
+        (when we are on schedule to release it!).
+      </p>
+      <p>
+        If you prefer real time notifications, follow us on your favorite <a href="#footer">social media</a>.<br />
+        And if you can’t wait at all, you can even <a href="tel:+352545580270">call us</a>!
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 columns">
+      <a class="button success" target="_blank" href="https://zc1.maillist-manage.com/ua/Optin?od=11287eca5741e9&opDgs=7200cd3a4fff9f7a6e7afab5049fd5c6d71b62c3142be692&lD=1153c9e46b9c1e7e&n=11699f750f406b6">
+        Subscribe
+      </a>
+    </div>
+  </div>
+
+  {% for post in site.categories['newsletter'] %}
+  <div class="row resource-item clearfix">
+    <div class="columns medium-5 small-12">
+      <h2>
+        {% if post.link %}
+        <a target="_blank" href="{{ post.link }}">
+          {{ post.title }}
+        </a>
+        {% else %}
+        <a href="{{ post.url }}">
+          {{ post.title }}
+        </a>
+        {% endif %}
+      </h2>
+      <div class="signature clearfix">
+        <img gravatar-src="'{{ site.data.members[post.author].email }}'"
+             title="{{ site.data.members[post.author].name }}"
+             class="label round gravatar"
+             gravatar-size="47" />
+        <span class="time">Posted about <span am-time-ago="'{{ post.date | date_to_xmlschema }}'"></span></span><br />
+        <span class="writer">Written by <a href="/about-us#{{ post.author }}">{{ site.data.members[post.author].name }}</a></span>
+      </div>
+    </div>
+    <div class="columns medium-7 small-12 synopsis">
+
+      {{ post.excerpt }}
+
+      {% if post.link %}
+      <a class="button success" target="_blank" href="{{ post.link }}">
+        Read more
+      </a>
+      {% else %}
+      <a class="button success" href="{{ post.url }}">
+        Read more
+      </a>
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
+
+</section>

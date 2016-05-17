@@ -1,0 +1,44 @@
+---
+layout: default
+---
+
+<section class="site-content documentation toc clearfix">
+
+  <div class="row">
+
+    {% include doc-sidenav.html %}
+
+    <div class="columns small-12 medium-8 large-9 content">
+      <h1>
+        {% if page.logo %}
+        <i class="continuousphp-icon-{{ page.logo }}"></i>
+        {% endif %}
+        {{ page.title | remove: " - Documentation" }}
+      </h1>
+
+      {{ content }}
+
+      <div class="row collapse">
+        <div class="small-12 medium-6 medium-offset-3">
+          <ul class="no-bullet">
+            {% assign items = site.docs | sort:'order' | where:"layout","doc" | where:"category",page.category %}
+            {% for item in items %}
+            {% unless item.toc == true %}
+            <li>
+              <a href="{{ item.url }}">
+                {% if item.logo %}
+                <i class="continuousphp-icon-{{ item.logo }}"></i>
+                {% endif %}
+                {{ item.title | remove: " - Documentation" }}
+              </a>
+            </li>
+            {% endunless %}
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</section>

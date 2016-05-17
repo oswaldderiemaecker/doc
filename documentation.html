@@ -1,0 +1,78 @@
+---
+layout:     default
+title:      "Continuous Documentation"
+excerpt:    "Here you'll find everything you need to implement Continuous Deployment, Continuous Delivery and Continuous Integration for your PHP projects on continuousphp."
+permalink:  /documentation/
+---
+
+<section class="site-content documentation clearfix">
+
+  <div class="row">
+    <div class="columns small-12">
+      <h1>Documentation</h1>
+    </div>
+  </div>
+
+  <div class="row intro clearfix">
+    <div class="small-12 columns">
+      <p>
+        Welcome to our documentation page. As you will soon figure out, this part of our website is a work in progress
+        as we are still working hard to provide you with a comprehensive and friendly documentation.
+      </p>
+      <p>
+        You can add your comments directly under each section or you can <a ng-click="chat()">contact us</a>
+        if you have questions/comments.
+      </p>
+      <p>
+        Feel free to take a look at our <a href="/tutorial/">tutorial page</a> where you will also find some useful
+        step by step information.
+      </p>
+
+      <h2>Overview</h2>
+
+      <p>
+        continuousphp is your one stop shop to build, package, test and deploy your PHP applications in one workflow.
+        It is an innovative PaaS (Platform as a Service) providing rapid, iterative and consistent application delivery
+        tailored for your PHP development needs.
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 columns">
+      <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+        {% assign categories = site.docs | sort:'order' | where:"layout","doc-toc" %}
+        {% for category in categories %}
+        <li>
+          <ul class="text-center panel radius category no-bullet">
+            <li>
+              {% if category.logo %}
+              <svg class="continuousphp-icon-{{ category.logo }}">
+                <use xlink:href="/assets/icons.svg#continuousphp-icon-{{ category.logo }}"></use>
+              </svg>
+              {% endif %}
+              <h2 class="clearfix">
+                <a href="{% if category.link %}{{ category.link }}" target="_blank{% else %}{{ category.url }}{% endif %}">
+                  {{ category.title | remove: " - Documentation" }}
+                </a>
+              </h2>
+            </li>
+            {% assign items = site.docs | sort:'order' | where:"layout","doc" | where:"category",category.category %}
+            {% for item in items %}
+              <li>
+                <a href="{% if item.link %}{{ item.link }}" target="_blank{% else %}{{ item.url }}{% endif %}">
+                  {% if item.logo %}
+                  <i class="continuousphp-icon-{{ item.logo }}"></i>
+                  {% endif %}
+                  {{ item.title | remove: " - Documentation" }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+</section>

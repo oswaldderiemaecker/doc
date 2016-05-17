@@ -1,0 +1,207 @@
+---
+layout:     default
+title:      "Continuous Subscription Plan"
+excerpt:    "At continuousphp, we love to discuss. As for the features of our platform, we interact a lot with OSS users, our partners, prospects and customers to find the best options for every kind of usage. Below you will find all the pricing options and we do hope one of them will perfectly fit your needs. If not, please get in touch with us."
+permalink:  /plans/
+---
+
+<section class="site-content plans clearfix">
+
+  {% raw %}
+  <div class="row pricing-tables">
+    <div class="columns small-12 medium-4">
+      <ul class="pricing-table">
+        <li class="title">Automated Deployment</li>
+        <li class="price">
+          {{ getPlanPrice('D-team', 'yearly', currency) / 12 | currency:currency }} <small>*</small><br />
+          <span>per month/user</span><br />
+          <span><small>billed yearly</small></span>
+          <hr>
+        </li>
+        <li class="description">
+          or {{ getPlanPrice('D-team', 'monthly', currency) | currency:currency }} <small>*</small><br />
+          per month/user<br />
+          billed monthly
+        </li>
+        <li class="cta-button">
+          <a class="button"
+             ng-if="!identity"
+             analytics-on
+             analytics-event="Change plan"
+             analytics-label="Click on Subscribe button for the Automated Deployment Plan unlogged"
+             analytics-category="subscription"
+             href="/profile">
+            Subscribe
+          </a>
+          <tab-select tab-options="companies"
+                      ng-if="identity"
+                      analytics-on
+                      analytics-event="Select Automated Deployment"
+                      analytics-label="Click on Subscribe button for the Automated Deployment Plan"
+                      analytics-category="subscription"
+                      button-class="'button'"
+                      on-select="updatePlan('team', value, 'D-team-yearly')">
+            Subscribe
+          </tab-select>
+        </li>
+        <li class="bullet-item"><span>unlimited</span> projects</li>
+        <li class="bullet-item"><span>unlimited</span> concurrent builds</li>
+        <li class="bullet-item"><span>unlimited</span> deployment pipelines</li>
+        <li class="bullet-item"><span>1</span> organization account</li>
+        <li class="bullet-item"><span>project</span> packaging</li>
+        <li class="bullet-item"><span>project</span> deployment</li>
+        <li class="bullet-item"><span>premium support</span></li>
+      </ul>
+    </div>
+    <div class="columns small-12 medium-4">
+      <ul class="pricing-table recommended">
+        <li class="best"><span>MOST POPULAR</span></li>
+        <li class="title">Continuous Delivery/Deployment</li>
+        <li class="price">
+          {{ getPlanPrice('CD-team', 'yearly', currency) / 12 | currency:currency }} <small>*</small><br />
+          <span>per month/user</span><br />
+          <span><small>billed yearly</small></span>
+          <hr>
+        </li>
+        <li class="description">
+          or {{ getPlanPrice('CD-team', 'monthly', currency) | currency:currency }} <small>*</small><br />
+          per month/user<br />
+          billed monthly
+        </li>
+        <li class="cta-button">
+          <a class="button"
+             ng-if="!identity"
+             analytics-on
+             analytics-event="Change plan"
+             analytics-label="Click on Subscribe button for the Continuous Deployment Plan unlogged"
+             analytics-category="subscription"
+             href="/profile">
+            Subscribe
+          </a>
+          <tab-select tab-options="companies"
+                      ng-if="identity"
+                      analytics-on
+                      analytics-event="Select Continuous Deployment"
+                      analytics-label="Click on Subscribe button for the Continuous Deployment Plan"
+                      analytics-category="subscription"
+                      button-class="'button'"
+                      on-select="updatePlan('team', value, 'CD-team-yearly')">
+            Subscribe
+          </tab-select>
+        </li>
+        <li class="bullet-item"><span>unlimited</span> projects</li>
+        <li class="bullet-item"><span>unlimited</span> concurrent builds</li>
+        <li class="bullet-item"><span>unlimited</span> deployment pipelines</li>
+        <li class="bullet-item"><span>unlimited</span> testing activities</li>
+        <li class="bullet-item"><span>unlimited</span> parallel activities</li>
+        <li class="bullet-item"><span>1</span> organization account</li>
+        <li class="bullet-item"><span>project</span> packaging</li>
+        <li class="bullet-item"><span>project</span> deployment</li>
+        <li class="bullet-item"><span>premium support</span></li>
+      </ul>
+    </div>
+    <div class="columns small-12 medium-4">
+      <ul class="pricing-table">
+        <li class="title"><br />Enterprise</li>
+        <li class="price">
+          {{ getPlanPrice('CD-enterprise', 'yearly', currency) / 12 | currency:currency }} <small>*</small><br />
+          <span>per month/user</span><br />
+          <span><small>billed yearly</small></span>
+          <hr>
+        </li>
+        <li class="description">
+          or {{ getPlanPrice('CD-enterprise', 'monthly', currency) | currency:currency }} <small>*</small><br />
+          per month/user<br />
+          billed monthly
+        </li>
+        <li class="cta-button">
+          <a class="button"
+             ng-if="!identity"
+             analytics-on
+             analytics-event="Select Automated Deployment"
+             analytics-label="Click on Subscribe button for the Automated Deployment Plan unlogged"
+             analytics-category="subscription"
+             href="/profile">
+            Subscribe
+          </a>
+          <tab-select tab-options="companies"
+                      ng-if="identity"
+                      analytics-on
+                      analytics-event="Select Automated Deployment"
+                      analytics-label="Click on Subscribe button for the Automated Deployment Plan"
+                      analytics-category="subscription"
+                      button-class="'button'"
+                      on-select="updatePlan('team', value, 'CD-enterprise-yearly')">
+            Subscribe
+          </tab-select>
+        </li>
+        <li class="bullet-item"><span>unlimited</span> projects</li>
+        <li class="bullet-item"><span>unlimited</span> concurrent builds</li>
+        <li class="bullet-item"><span>unlimited</span> deployment pipelines</li>
+        <li class="bullet-item"><span>unlimited</span> testing activities</li>
+        <li class="bullet-item"><span>unlimited</span> parallel activities</li>
+        <li class="bullet-item"><span>1</span> organization account</li>
+        <li class="bullet-item">self hosted VCS <span>support</span></li>
+        <li class="bullet-item"><span>project</span> packaging</li>
+        <li class="bullet-item"><span>project</span> deployment</li>
+        <li class="bullet-item"><span>technical</span> account manager</li>
+        <li class="bullet-item"><span>enterprise support</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="columns text-center medium-4 end yearly-switch">
+      <label class="inline">
+        USD
+      </label>
+      <div class="switch inline">
+        <input ng-model="currency"
+               id="currency-top"
+               type="checkbox"
+               ng-false-value="'$'"
+               ng-true-value="'€'"
+               aria-describedby="currency" />
+        <label for="currency-top"></label>
+      </div>
+      <label class="inline">
+        EURO
+      </label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="columns small-12">
+      (*) Prices without tax.
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="columns small-12">
+      <div class="panel radius">
+        <h2 class="clearfix">
+          <div class="right">
+            <a class="button radius secondary"
+               href="/projects/"
+               ng-hide="identity"
+               analytics-on
+               analytics-event="Select Community"
+               analytics-label="Click on Subscribe button for the Community Plan"
+               analytics-category="subscription">
+              Subscribe for free
+            </a>
+          </div>
+          Community
+        </h2>
+        <p>
+          continuousphp supports the PHP community! It's completely free for OSS public and educational projects.
+          Make sure to use the best Continuous Deployment platform for your projects so that
+          you can continuously provide your users with a tested applications.<br />
+          Basic Support by email
+        </p>
+      </div>
+    </div>
+  </div>
+  {% endraw %}
+
+</section>

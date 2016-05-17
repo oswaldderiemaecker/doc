@@ -1,0 +1,120 @@
+fdewinne:
+  show: true
+  email: 'frederic@continuousphp.com'
+  name: 'Frederic Dewinne'
+  title: 'CTO & Co-Founder'
+  company: 'Continuous S.A.'
+  location: 'Luxembourg'
+  url: 'https://continuousphp.com'
+  linkedin: 'https://lu.linkedin.com/in/fredericdewinne'
+  google: 'https://www.google.com/+Fr%C3%A9d%C3%A9ricDewinnePro'
+  twitter: 'fdewinne'
+  certifications:
+  - ZCE-PHP5.5
+  - ZCE-ZF1
+  bio:
+    |
+    Continuous Delivery/Deployment addict in the PHP world.
+    After many years of consultancy, Frederic met his partners and created continuousphp
+    in order to help PHP developers to adopt industry standards.
+
+    He's also a senior consultant and IT trainer specialized in PHP apps testing (unit test, behavior test...),
+    Zend Framework (also a contributing developer), Zend Server and JavaScript technologies.
+    Particularly interested in industry best practices, Continuous Delivery, application and system architecture.
+
+
+oswaldderiemaecker:
+  show: true
+  email: 'oswald@continuousphp.com'
+  name: 'Oswald De Riemaecker'
+  title: 'CEO & Co-Founder'
+  company: 'Continuous S.A.'
+  location: 'Luxembourg'
+  url: 'https://continuousphp.com'
+  linkedin: 'http://lu.linkedin.com/pub/oswald-de-riemaecker/13/46a/586/en'
+  google: 'https://plus.google.com/116338007809600762939'
+  twitter: 'oswald_odr'
+  certifications:
+  - SCRUM-CSM
+  - SCRUM-CSP
+  - SCRUM-CSPO
+  - ZCE-ZF1
+  - Redhat-CSA
+  - AWS-CSAA
+  bio:
+    |
+    Agile and DevOps Evangelist. By working for many years on various projects,
+    Oswald mastered many project management methodologies,
+    Agile practices and principles having proven to be the most successful.
+
+    He supports and coaches development teams so that they implement these principles and practices,
+    including Agile development such as Unit Testing, BDD, Continuous Integration/Delivery and Deployment.
+
+    Being a Linux and Open Source supporter for many years, he’s a firm believer in the DevOps culture.
+    He coaches and gives the best tools to developers in order to streamline
+    the product development till deployment.
+
+    He likes shaping infrastructures as code so he can build scalable cloud infrastructure.
+
+
+ppaulis:
+  show: true
+  email: 'pascal.paulis@continuousphp.com'
+  name: 'Pascal Paulis'
+  title: 'Core Developer'
+  company: 'Continuous S.A.'
+  location: 'Luxembourg'
+  url: 'https://continuousphp.com'
+  linkedin: 'https://www.linkedin.com/profile/view?id=143607144'
+  google: 'https://plus.google.com/u/0/118376055719037894146'
+  twitter: 'ppaulis'
+  certifications:
+  - ZCE-PHP5.5
+  - ZCE-ZF1
+  bio:
+    |
+    Pascal holds a Master's degree in Computer Science and is PHP & ZF Certified Engineer.
+    He started to work as a SysAdmin and web developer.
+    Thanks to his experience with end customers and as a consultant,
+    he's developed a strong expertise in Continuous Delivery, Behaviour Driven Development and API Design.
+
+
+cvenet:
+  show: true
+  email: 'clement@continuousphp.com'
+  name: 'Clément Venet'
+  title: 'Sales Director'
+  company: 'Continuous S.A.'
+  location: 'Luxembourg'
+  url: 'https://continuousphp.com'
+  linkedin: 'http://lu.linkedin.com/pub/clement-venet/40/74a/b57/en'
+  google: 'https://plus.google.com/u/0/117379909617531632385'
+  twitter: 'clementvenet'
+  bio:
+    |
+    Clément has a Sales and Marketing background.
+    He has sold software and professional services for the last decade,
+    and he’s been working enthusiastically within the PHP ecosystem for 7 years.
+
+    Through trust and long term follow-up within strategic business alliances,
+    Clément is excellent at building strong and personal relationships with customers and partners.
+
+
+ToughSee:
+  show: false
+  email: 'christophe@continuousphp.com'
+  name: 'Christophe Chervy'
+  title: 'Marketing Director'
+  company: 'Continuous S.A.'
+  location: 'Luxembourg'
+  url: 'https://continuousphp.com'
+  linkedin: 'http://fr.linkedin.com/in/christophechervy/en'
+  google: 'https://plus.google.com/u/0/106404073070291281667'
+  bio:
+    |
+    Christophe has been working in the PHP ecosystem for quite long,
+    as Marketing and Communication manager for Zend Technologies.
+    On the community side, he works with the French PHP user group as an individual
+    and has been working with many user groups around the world through his various jobs.
+
+    Christophe also runs [Open Goodies](http://open-goodies.com), the company taking care of the famous and lovely [elePHPant](http://elephpant.com).

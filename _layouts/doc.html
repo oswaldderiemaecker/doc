@@ -1,0 +1,32 @@
+---
+layout: default
+---
+
+<section class="site-content documentation toc clearfix">
+
+  <div class="row">
+
+    {% include doc-sidenav.html %}
+
+    <div class="columns small-12 medium-8 large-9 content" anchor-linkify>
+      <h1>
+        {% if page.logo %}
+        <i class="continuousphp-icon-{{ page.logo }}"></i>
+        {% endif %}
+        {{ page.title | remove: " - Documentation" }}
+      </h1>
+      {{ content }}
+      {% if page.comments %}
+      <div class="row">
+        <dir-disqus disqus-shortname="continuousphp"
+                    disqus-identifier="{{ page.url | replace:'index.html','' }}"
+                    disqus-title="{{ page.title }}"
+                    disqus-url="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"
+                    disqus-config-language="en">
+        </dir-disqus>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+</section>

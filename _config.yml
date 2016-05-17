@@ -1,0 +1,39 @@
+# Site settings
+title: continuousphp
+email: your-email@domain.com
+description: 'DevOps Platform for Developers! Build, test and deploy your php applications in a scalable cloud based Continuous Deployment platform as a service.'
+baseurl: "" # the base hostname & protocol for your site
+url: "http://app.local.continuousphp.com:9000" # the base hostname & protocol for your site
+api_url: "http://api.sandbox.continuousphp.com/api"
+twitter_username: continuousphp
+github_username:  continuousphp
+facebook_appid: 674941435932855
+image: "/assets/continuousphp-share.jpg"
+robots: 'noindex,nofollow,noarchive,noodp'
+
+# Build settings
+markdown: redcarpet
+excerpt_separator: <!--more-->
+
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+
+# Outputting
+permalink: /:categories/:title/
+
+gems:
+  - jekyll-sitemap
+
+collections:
+  trainings:
+   output: true
+   permalink: /training/:path/
+  docs:
+   output: true
+   permalink: /documentation/:path/
+
+defaults:
+  -
+    values:
+      layout: "default"
+      comments: true

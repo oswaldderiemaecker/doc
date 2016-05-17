@@ -1,0 +1,24 @@
+---
+layout:         post
+title:          "continuousphp will exhibit at ZendCon 2015!"
+date:           2015-10-02 15:00:00
+author:         'ToughSee'
+image:          '/assets/2015-10-02/zendcon.png'
+hasDescription: true
+categories:     news
+---
+![ ](/assets/2015-10-02/zendcon.png)
+
+continuousphp is an official exhibitor at ZendCon 2015 which will be in Las Vegas from Oct. 19th to 22nd.
+
+<!--more-->
+
+ZendCon 2015, at Hard Rock Hotel & Casino in Las Vegas, marks the most exciting year ever in PHP history, with the
+release of the long awaited PHP 7. continuousphp is very proud to be part of it!
+
+100 sessions, 16 tutorials will take place during these 4 fantastic days.
+
+Oswald de Riemaecker, our CEO, and Frederic Dewinne, our CTO, will represent continousphp. We will have a booth there.
+Find them to discuss about Continuous Delivery and PHP! 
+​
+[Learn more about Zendcon](http://www.zendcon.com/)

@@ -1,0 +1,250 @@
+---
+layout: default
+---
+<div ng-if="!identity">
+  <div class="row collapse">
+    <div class="small-12 medium-4 medium-centered columns home-video">
+      <iframe width="356"
+              height="200"
+              class="home-video-embed"
+              src="https://www.youtube.com/embed/kLilMGsoS4E?rel=0&amp;showinfo=0"
+              frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div relative-hide="0.5">
+    <hgroup class="row collapse home-title">
+      <h1 class="columns large-12 medium-12 small-12 text-center">continuous<span>php</span></h1>
+      <h2 class="columns large-12 medium-12 small-12 text-center">DevOps Platform for Developers!</h2>
+      <p class="text-center large-12 medium-12 small-12">
+        continuousphp&copy; is the first and only PHP-centric PaaS to build, package, test and deploy
+        applications in the same workflow.
+      </p>
+    </hgroup>
+  </div>
+
+  <div relative-hide="0.5">
+    <div class="row collapse home-signup">
+      <div class="columns large-6 medium-10 small-12 large-centered medium-centered">
+        <div class="row">
+          <div class="columns small-6">
+            <a href="/news/10-reasons-to-use-continuousphp-for-developers/" class="button expand secondary radius">Why using us</a>
+          </div>
+          <div class="columns small-6">
+            <a class="button expand success radius"
+               analytics-on
+               analytics-event="Start using"
+               analytics-label="Click on Start using button on the homepage"
+               analytics-category="account"
+               href="/projects/">Start using for free</a>
+          </div>
+        </div>
+      </div>
+      <p class="text-center large-12 medium-12 small-12">
+        Log in with your Github/Bitbucket account and start using continuousphp with 30 free builds.<br/>
+        Free &amp; unlimited for open source and personal projects.
+      </p>
+    </div>
+  </div>
+
+  <div class="row collapse home-more" relative-style="{height: 0.3}" limit-element="'.site-content'">
+    <p class="text-center large-12 medium-12 small-12 more" relative-hide="0.5" staticify>
+      <i class="fa fa-chevron-down"></i>
+    </p>
+  </div>
+
+  <section class="site-content home clearfix">
+
+    <div class="row">
+      <div class="columns small-12 medium-6">
+        <blockquote>
+            We encountered many issues when we tried to implement our new continuous delivery workflow,
+            then we started to use continuousphp and it saved us tons of clicks, days, scripts, and eventually money...
+            Adopted!
+          <cite>
+            Fredrick Williams, CEO at
+            <a href="http://www.mypetcredentials.com/" target="_blank">My Pet Credentials, Inc.</a>
+            &bull; November 2015
+          </cite>
+        </blockquote>
+      </div>
+      <div class="columns small-12 medium-6">
+        <blockquote>
+          For me, continuousphp means simplicity, efficiency and ability to customize.
+          The new pipeline configuration process makes it even easier and clearer to put a workflow in place.
+          <cite>
+            Pierre Tomasina, CTO at
+            <a href="https://github.com/Power-LAB/" target="_blank">PowerLAB</a>
+            &bull; October 2015
+          </cite>
+        </blockquote>
+      </div>
+    </div>
+
+    <div class="row collapse clearfix workflow">
+      <div class="columns medium-6 small-12">
+        <div class="row">
+          <div class="columns small-6 text-center">
+            <div class="row">
+              <img src="/assets/cog.svg" alt="Checkout the code" />
+            </div>
+            <h4>Prepare your code</h4>
+            <p>Install dependencies and execute project specific tasks</p>
+          </div>
+          <div class="columns small-6 text-center">
+            <div class="row">
+              <img src="/assets/checkmark.svg" alt="Execute" />
+            </div>
+            <h4>Run tests</h4>
+            <p>Test and analyze your code in parallel</p>
+          </div>
+        </div>
+      </div>
+      <div class="columns medium-6 small-12">
+        <div class="row collapse">
+          <div class="columns small-6 text-center">
+            <div class="row">
+              <img src="/assets/package.svg" alt="Package the application" />
+            </div>
+            <h4>Package the app</h4>
+            <p>Use generic TarGz package, Zend Server or AWS CodeDeploy</p>
+          </div>
+          <div class="columns small-6 text-center deploy-activity">
+            <div class="row">
+              <img src="/assets/cloud.svg" alt="Deploy the package" />
+            </div>
+            <h4>Deploy the package</h4>
+            <p>Deploy on project/ref specific environments</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row clearfix collapse showcase">
+      <div class="columns large-6 medium-5 small-12 text-center">
+        <img zoom src="/images/setup.png" srcset="/images/setup@2x.png 1140w" alt="Seamlessly implements continuous deployment into your project"/>
+      </div>
+      <div class="columns large-6 medium-7 small-12">
+        <h3>It's all about time and money!</h3>
+        <p>
+          No need to spend hours configuring and maintaining servers and third-party tools,
+          continuousphp handles that for you. Very simple to implement:
+          just a few clicks and you're equipped with a solid Continuous Deployment platform.<br />
+          Very performant: we provide you with the fastest testing and delivery workflow.
+        </p>
+      </div>
+    </div>
+
+    <div class="row clearfix collapse showcase">
+      <div class="columns large-6 large-push-6 medium-5 medium-push-7 small-12 text-center">
+        <img zoom src="/images/pipelines.png" srcset="/images/pipelines@2x.png 1140w" alt="It's all about time and money!"/>
+      </div>
+      <div class="columns large-6 large-pull-6 medium-7 medium-pull-5 small-12">
+        <h3>Seamlessly implements continuous deployment into your project</h3>
+        <p>
+          The configuration tool will help you to easily set up your deployment and testing pipelines,
+          to deploy tested packaged applications on your destinations.
+        </p>
+      </div>
+    </div>
+
+    <div class="row clearfix collapse showcase">
+      <div class="columns large-6 medium-5 small-12 text-center">
+        <img zoom src="/images/console.png" srcset="/images/console@2x.png 1140w" alt="Scalability and performance"/>
+      </div>
+      <div class="columns large-6 medium-7 small-12">
+        <h3>Scalability and performance</h3>
+        <p>
+          continuousphp is a PaaS (Platform as a Service) based on a solid cloud infrastructure.
+          Whatever the number of projects or branches you have, you will be able to add new builds and testing
+          environments on demand.
+        </p>
+      </div>
+    </div>
+
+    <div class="row technos">
+      <p class="columns small-12 grey-text">What we rely on:</p>
+      <ul class="medium-block-grid-6 small-block-grid-2">
+        <li>
+          <a href="http://php.net" title="PHP" rel="nofollow external"><img src="/images/logo-php.png" alt="php" /></a>
+        </li>
+        <li>
+          <a href="http://phpunit.de" title="PHPUnit" rel="nofollow external"><img src="/images/logo-phpunit.png" alt="PHPUnit" /></a>
+        </li>
+        <li>
+          <a href="https://www.zend.com/en/products/server" title="Zend Server" rel="nofollow external"><img src="/images/logo-zend-server.png" alt="Zend Server" /></a>
+        </li>
+        <li>
+          <a href="http://www.phing.info" title="Phing" rel="nofollow external"><img src="/images/logo-phing.png" alt="Phing" /></a>
+        </li>
+        <li>
+          <a href="https://github.com" title="GitHub" rel="nofollow external"><img src="/images/logo-github.png" alt="GitHub" /></a>
+        </li>
+        <li>
+          <a href="https://getcomposer.org" title="Composer" rel="nofollow external"><img src="/images/logo-composer.png" alt="Composer" /></a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="row technos">
+      <p class="columns small-12 grey-text">Our partners:</p>
+      <ul class="small-block-grid-4">
+        <li>
+          <a href="https://aws.amazon.com" title="Amazon AWS" rel="nofollow external"><img src="/assets/aws-technology-partner.png" alt="Amazon AWS" /></a>
+        </li>
+        <li>
+          <a href="http://www.docker.com" title="Docker" rel="nofollow external"><img src="/assets/docker-partner.png" alt="Docker" /></a>
+        </li>
+        <li>
+          <a href="http://www.zend.com/" title="Zend Technologies" rel="nofollow external"><img src="/assets/zend-select-partner.png" alt="Zend Technologies" /></a>
+        </li>
+        <li><a href="http://www.vesperiagroup.com/" title="Vesperia" rel="nofollow external"><img src="/assets/vesperia-partner.svg" alt="Vesperia"/></a></li>
+      </ul>
+    </div>
+
+    <div class="row customers">
+      <p class="columns small-12 grey-text">They already trust us:</p>
+      <ul class="small-block-grid-4">
+        <li>
+          <a href="http://bookmylimo.com/"
+             title="BookMyLimo : Program your driver worldwide"
+             rel="external nofollow">
+            <img src="/assets/bookmylimo-customer.png"
+                 srcset="/assets/bookmylimo-customer@2x.png 1152w"
+                 alt="BookMyLimo : Program your driver worldwide">
+          </a>
+        </li>
+        <li>
+          <a href="http://ec.europa.eu/"
+             title="European Comission"
+             rel="external nofollow">
+            <img src="/assets/europa-customer.svg" alt="European Comission">
+          </a>
+        </li>
+        <li>
+          <a href="http://www.gouvernement.lu/meco"
+             title="Ministère de l'économie Luxembourgeois"
+             rel="external nofollow">
+            <img src="/assets/meco-customer.svg"
+                 alt="Ministère de l'économie Luxembourgeois">
+          </a>
+        </li>
+        <li>
+          <a href="http://www.taotesting.com/"
+             title="OAT - home of tao"
+             rel="external nofollow">
+            <img src="/assets/oat-customer.svg"
+                 alt="OAT - home of tao">
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="row">
+      <div class="columns large-3 medium-10 small-12 large-centered medium-centered">
+        <a class="button expand radius" href="/projects/">Start using for free</a>
+      </div>
+    </div>
+
+  </section>
+</div>

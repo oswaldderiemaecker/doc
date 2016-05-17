@@ -1,0 +1,56 @@
+---
+layout:     default
+title:      "Continuous Tutorials"
+excerpt:    "Here you will find comprehensive tutorials which will help you to understand continuousphp and how to configure, test, package and deploy your projects with it."
+permalink:  /tutorial/
+---
+
+<section class="site-content resource-list clearfix">
+
+  <div class="row">
+    <div class="columns small-12">
+      <h1>Tutorials</h1>
+    </div>
+  </div>
+
+  {% for post in site.categories['tutorial'] %}
+  <div class="row resource-item clearfix">
+    <div class="columns medium-5 small-12">
+      <h2>
+        {% if post.link %}
+        <a target="_blank" href="{{ post.link }}">
+          {{ post.title }}
+        </a>
+        {% else %}
+        <a href="{{ post.url }}">
+          {{ post.title }}
+        </a>
+        {% endif %}
+      </h2>
+      <div class="signature clearfix">
+        <img gravatar-src="'{{ site.data.members[post.author].email }}'"
+             title="{{ site.data.members[post.author].name }}"
+             class="label round gravatar"
+             gravatar-size="47" />
+        <span class="time">Posted about <span am-time-ago="'{{ post.date | date_to_xmlschema }}'"></span></span><br />
+        <span class="writer">Written by <a href="/about-us#{{ post.author }}">{{ site.data.members[post.author].name }}</a></span>
+      </div>
+    </div>
+    <div class="columns medium-7 small-12 synopsis">
+
+      {{ post.excerpt }}
+
+      {% if post.link %}
+      <a class="button success" target="_blank" href="{{ post.link }}">
+        Read more
+      </a>
+      {% else %}
+      <a class="button success" href="{{ post.url }}">
+        Read more
+      </a>
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
+
+</section>

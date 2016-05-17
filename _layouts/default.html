@@ -1,0 +1,219 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js adblock lt-ie9 lt-ie8 lt-ie7" lang="en" prefix="og: http://ogp.me/ns#" ng-app="webApp"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js adblock lt-ie9 lt-ie8" lang="en" prefix="og: http://ogp.me/ns#" ng-app="webApp"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js adblock lt-ie9" lang="en" prefix="og: http://ogp.me/ns#" ng-app="webApp"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js adblock" lang="en" prefix="og: http://ogp.me/ns#" ng-app="webApp">
+<!--<![endif]-->
+
+{% include head.html %}
+
+<body>
+  <toast></toast>
+  <div class="off-canvas-wrap">
+    <div class="inner-wrap" ng-controller="HeaderCtrl">
+      <nav class="tab-bar hide-for-large-up">
+        <section class="left-small">
+          <a class="left-off-canvas-toggle menu-icon">
+            <span></span>
+          </a>
+        </section>
+
+        <section class="middle tab-bar-section">
+          <h1 class="title">
+            <span>continuous
+              <span>php</span>
+            </span>
+          </h1>
+        </section>
+
+        <section class="right-small">
+          <a class="right-off-canvas-toggle menu-icon">
+            <span></span>
+          </a>
+        </section>
+
+      </nav>
+
+      <aside class="left-off-canvas-menu" ng-cloak>
+        <ul class="off-canvas-list">
+          <li><a href="/">Home</a></li>
+          <li>
+            <a href="/tutorial/">Tutorials</a>
+          </li>
+          <li>
+            <a href="/plans/">Plans</a>
+          </li>
+          <li>
+            <a href="/training/">Trainings</a>
+          </li>
+          <li>
+            <a href="/news/">News</a>
+          </li>
+          <li>
+            <a href="/documentation/">Documentation</a>
+          </li>
+          <li>
+            <a href="/jobs/">
+                Jobs
+              </a>
+          </li>
+          <li>
+            <a href="/contact/">
+                Contact
+              </a>
+          </li>
+        </ul>
+      </aside>
+
+      <aside class="right-off-canvas-menu" ng-cloak>
+        <ul class="off-canvas-list">
+          <li ng-if="identity">
+            <label ng-bind="identity.username"></label>
+          </li>
+          <li ng-if="identity">
+            <a href="/profile/">Profile</a>
+          </li>
+          <li ng-show="identity">
+            <a href="/projects/">
+                My projects
+              </a>
+          </li>
+          <li ng-if="identity">
+            <a href="#" ng-click="$event.preventDefault();logOut()">
+                Log out
+              </a>
+          </li>
+          <li ng-if="!identity && !hideLogin" ng-cloak>
+            <a href="/projects/">Log in</a>
+          </li>
+        </ul>
+      </aside>
+
+      <section class="main-section" ng-controller="AuthCtrl">
+
+        <div class="cphp-background clearfix">
+          <!--[if lt IE 9]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+            <![endif]-->
+
+          <header class="row show-for-large-up collapse">
+            <top-bar class="clearfix main-top-bar medium-12 columns">
+              <ul class="title-area">
+                <li class="name">
+                  <a href="/">
+                    <span>continuous</span>php</a>
+                </li>
+              </ul>
+
+              <top-bar-section>
+                <!-- Right Nav Section -->
+                <ul class="right" ng-cloak>
+                  <li ng-if="identity" class="user-icon">
+                    <a><i class="continuousphp-icon-user"></i></a>
+                  </li>
+                  <li has-dropdown ng-if="identity">
+                    <a href="#" ng-bind="identity.username"></a>
+                    <ul top-bar-dropdown>
+                      <li>
+                        <a href="/profile/">Profile</a>
+                      </li>
+                      <li>
+                        <a href="/projects/">
+                            My projects
+                          </a>
+                      </li>
+                      <li>
+                        <a href="#" ng-click="$event.preventDefault();logOut()">
+                          <i class="fa fa-times"></i> Log out
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li ng-if="!identity && !hideLogin">
+                    <a class="button" href="/projects/">Log in</a>
+                  </li>
+                </ul>
+
+                <ul class="left" ng-cloak>
+                  <li ng-class="{'active': route=='tutorial'}">
+                    <a href="/tutorial/">Tutorials</a>
+                  </li>
+                  <li ng-class="{'active': route=='documentation'}">
+                    <a href="/documentation/">Docs</a>
+                  </li>
+                  <li ng-class="{'active': route=='plans'}">
+                    <a href="/plans/">Pricing</a>
+                  </li>
+                  <li ng-class="{'active': route=='training'}">
+                    <a href="/training/">Trainings</a>
+                  </li>
+                  <li ng-class="{'active': route=='news'}">
+                    <a href="/news/">News</a>
+                  </li>
+                  <li ng-class="{'active': route=='jobs'}">
+                    <a href="/jobs/">
+                        Jobs
+                      </a>
+                  </li>
+                  <li ng-class="{'active': route=='contact'}">
+                    <a href="/contact/">
+                      Contact
+                    </a>
+                  </li>
+                </ul>
+              </top-bar-section>
+            </top-bar>
+          </header>
+
+          <noscript style="display:block">
+            <div class="row collapse cphp-alert-minimalconfig">
+              <div data-alert class="alert-box warning radius">
+                Our application needs Javascript to run. Your browser is not supporting Javascript. Please enable Javascript to use it.
+              </div>
+            </div>
+          </noscript>
+          <div class="row collapse cphp-alert-minimalconfig adblock-alert hide">
+            <div data-alert class="alert-box warning radius">
+              Our scripts are blocked by your ad-blocker. Please add our website to your whitelist to use it.
+            </div>
+          </div>
+
+          <div class="row collapse" ng-show="identity" ng-cloak>
+            <section ng-controller="OmnibarCtrl" ng-include="'/views/omnibar.html'" class="small-12 medium-12 large-12 medium-centered large-centered columns omnibar"></section>
+          </div>
+
+          <div ng-switch on="sessionStatus" ng-cloak>
+            <div ng-switch-when="connected">
+              <div ng-view autoscroll="true">
+                {{ content }}
+              </div>
+            </div>
+            <div ng-switch-when="disconnected" class="row collapse animate-switch" relative-style="{minHeight: 1}" limit-element="'footer'">
+              <section class="animate-switch view-content view-content-login dark-bleu-border small-12 medium-6 large-5 medium-centered large-centered columns" ng-controller="LoginCtrl" ng-include="'/views/login.html'"></section>
+            </div>
+            <div ng-switch-when="signingContract" class="row collapse animate-switch" relative-style="{minHeight: 1}" limit-element="'footer'">
+              <section class="animate-switch small-12 medium-10 large-10 medium-centered large-centered columns" ng-controller="TermsCtrl" ng-include="'/views/terms.html'"></section>
+            </div>
+            <div ng-switch-default class="row collapse animate-switch">
+              <div class="row">
+                <section class="cphp-loading animate-switch small-11 medium-10 large-10 small-centered medium-centered large-centered columns"></section>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        {% include footer.html %}
+
+      </section>
+
+      <a class="exit-off-canvas"></a>
+    </div>
+  </div>
+
+  {% include scripts.html %}
+
+</body>
+
+</html>

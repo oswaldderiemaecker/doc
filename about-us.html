@@ -1,0 +1,103 @@
+---
+layout:     default
+title:      "About The Continuous Team"
+excerpt:    "Frederic Dewinne, Oswald de Riemaecker and Pascal Paulis started to develop continuousphp back in 2013 when they found that something was missing in the PHP ecosystem. They strongly believed that an Agile methodology needed to be backed by a comprehensive Continuous Delivery Platform."
+permalink:  /about-us/
+---
+
+<section class="site-content about-us clearfix">
+
+  <div class="row">
+    <div class="columns small-12">
+      <h1>About us</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="columns small-12 story">
+      <p>
+        <a href="#fdewinne">Frederic Dewinne</a>,
+        <a href="#oswaldderiemaecker">Oswald de Riemaecker</a> and
+        <a href="#ppaulis">Pascal Paulis</a> started to develop continuousphp back in 2013 when they found that
+        something was missing in the PHP ecosystem.
+        They strongly believed that an Agile methodology needed to be backed by a comprehensive
+        Continuous Delivery Platform.
+      </p>
+
+      <p>
+        Few platforms existed at that time, and none of them were completely thought for and by PHP developers.
+        Many acknowledged tools and industry standards from the PHP ecosystem were not fully integrated
+        to meet PHP developer’s needs. This is how the story began.
+      </p>
+
+      <p>
+        Thanks to this team’s involvement in the PHP world,
+        continuousphp takes advices from a lot of different PHP developers and
+        SysAdmin so that they exactly know what they need to embrace DevOps culture...
+      </p>
+    </div>
+  </div>
+
+  {% for people in site.data.members %}
+  {% if people[1].show %}
+  <div class="row team-item">
+    <div class="columns medium-4 small-12 text-center">
+      <div class="row">
+        <img gravatar-src="'{{ people[1].email }}'"
+             title="{{ people[1].name }}"
+             class="label round gravatar"
+             gravatar-size="150" />
+      </div>
+      <div class="row">
+        {% if people[1].certifications %}
+          {% for certification in people[1].certifications %}
+            <img src="/assets/certifications/{{ certification }}.png" alt="{{ certification }}">
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+    <div class="columns medium-6 small-12 resume">
+      <h2 id="{{ people[0] }}">{{ people[1].name }}</h2>
+      <h3>{{ people[1].title }}</h3>
+      {% if people[1].bio %}
+      {{ people[1].bio | markdownify }}
+      {% endif %}
+    </div>
+    <div class="columns medium-2 small-12 action show-for-medium-up">
+      <div class="row arrow">
+        <div class="columns medium-10 medium-offset-1">
+          <label>Contact him</label>
+          <ul class="inline-list">
+            {% if people[1].linkedin %}
+            <li>
+              <a ng-href="{{ people[1].linkedin }}"
+                 target="_blank">
+                <i class="continuousphp-icon-linkedin-square"></i>
+              </a>
+            </li>
+            {% endif %}
+            {% if people[1].google %}
+            <li>
+              <a ng-href="{{ people[1].google }}"
+                 target="_blank">
+                <i class="continuousphp-icon-google-plus"></i>
+              </a>
+            </li>
+            {% endif %}
+            {% if people[1].twitter %}
+            <li>
+              <a ng-href="https://twitter.com/{{ people[1].twitter }}"
+                 target="_blank">
+                <i class="continuousphp-icon-twitter-square"></i>
+              </a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  {% endfor %}
+
+</section>

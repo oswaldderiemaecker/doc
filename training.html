@@ -1,0 +1,64 @@
+---
+layout:     default
+title:      "Continuous Training"
+excerpt:    "continuousphp is not only a great platform, it is also a team of experts who strongly believe that you need someone at your side to put Continuous Delivery and Continuous Deployment in place in your daily work. To do so, we have created training courses which will help you to understand all the knowledge required to master CD."
+permalink:  /training/
+---
+
+<section class="site-content resource-list clearfix">
+
+  <div class="row">
+    <div class="columns small-12">
+      <h1>Training</h1>
+    </div>
+  </div>
+
+  <div class="row intro clearfix">
+    <div class="small-12 columns">
+      <p>
+        {{ page.excerpt }}
+      </p>
+    </div>
+  </div>
+
+  {% for training in site.trainings | sort: 'date' %}
+  <div class="row resource-item clearfix">
+    <div class="columns medium-5 small-12">
+      <h2>
+        {% if training.link %}
+        <a target="_blank" href="{{ training.link }}">
+          {{ training.title }}
+        </a>
+        {% else %}
+        <a href="{{ training.url }}">
+          {{ training.title }}
+        </a>
+        {% endif %}
+      </h2>
+      <div class="signature clearfix">
+        <img gravatar-src="'{{ site.data.members[training.author].email }}'"
+             title="{{ site.data.members[training.author].name }}"
+             class="label round gravatar"
+             gravatar-size="47" />
+        <span class="time">Posted about <span am-time-ago="'{{ training.date | date_to_xmlschema }}'"></span></span><br />
+        <span class="writer">Written by <a href="/about-us#{{ training.author }}">{{ site.data.members[training.author].name }}</a></span>
+      </div>
+    </div>
+    <div class="columns medium-7 small-12 synopsis">
+
+      {{ training.content }}
+
+      {% if training.link %}
+      <a class="button success" target="_blank" href="{{ training.link }}">
+        Read more
+      </a>
+      {% else %}
+      <a class="button success" href="{{ training.url }}">
+        Read more
+      </a>
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
+
+</section>

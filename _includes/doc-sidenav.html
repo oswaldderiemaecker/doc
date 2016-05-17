@@ -1,0 +1,32 @@
+<div class="medium-4 large-3 columns">
+  <div class="hide-for-small-down">
+    <div class="sidebar">
+      <h1><a href="/documentation">Documentation</a></h1>
+      <nav>
+        <ul class="side-nav">
+          {% assign categories = site.docs | sort:'order' | where:"layout","doc-toc" %}
+          {% for categoryItem in categories %}
+              <li class="divider"></li>
+              <li class="heading">
+                <a href="{% if categoryItem.link %}{{ categoryItem.link }}" target="_blank{% else %}{{ categoryItem.url }}{% endif %}">
+                  {{ categoryItem.title | remove: " - Documentation" }}
+                </a>
+              </li>
+              {% assign items = site.docs | sort:'order' | where:"layout","doc" | where:"category",categoryItem.category %}
+              {% for item in items%}
+                {% if page.url == item.url %}
+                <li class="active">
+                {% else %}
+                <li>
+                {% endif %}
+                  <a href="{% if item.link %}{{ item.link }}" target="_blank{% else %}{{ item.url }}{% endif %}">
+                    {{ item.title | remove: " - Documentation" }}
+                  </a>
+                </li>
+              {% endfor %}
+          {% endfor %}
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>

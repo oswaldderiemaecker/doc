@@ -3,7 +3,7 @@ title: continuousphp
 email: your-email@domain.com
 description: 'DevOps Platform for Developers! Build, test and deploy your php applications in a scalable cloud based Continuous Deployment platform as a service.'
 baseurl: "" # the base hostname & protocol for your site
-url: "http://app.local.continuousphp.com:9000" # the base hostname & protocol for your site
+url: "http://app.local.continuousphp.com:4000" # the base hostname & protocol for your site
 api_url: "http://api.sandbox.continuousphp.com/api"
 twitter_username: continuousphp
 github_username:  continuousphp

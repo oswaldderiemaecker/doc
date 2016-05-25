@@ -1,0 +1,14 @@
+{
+  "name": "continuousphp-doc",
+  "description": "continuousphp official documentation",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/continuousphp/doc.git"
+  },
+  "author": "fdewinne <frederic@continuousphp.com>",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/continuousphp/doc/issues"
+  },
+  "homepage": "https://github.com/continuousphp/doc#readme"
+}

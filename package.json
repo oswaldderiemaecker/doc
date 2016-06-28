@@ -1,6 +1,6 @@
 {
   "name": "continuousphp-doc",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "continuousphp official documentation",
   "repository": {
     "type": "git",
@@ -11,5 +11,8 @@
   "bugs": {
     "url": "https://github.com/continuousphp/doc/issues"
   },
-  "homepage": "https://github.com/continuousphp/doc#readme"
+  "homepage": "https://github.com/continuousphp/doc#readme",
+  "devDependencies": {
+    "grunt-hardlink": "^0.2.0"
+  }
 }

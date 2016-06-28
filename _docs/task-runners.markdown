@@ -1,15 +1,15 @@
 ---
 layout:         doc-toc
 title:          "Task runners - Documentation"
-category:       "task-runners"
+category:       "taskrunners"
 logo:           task-runner
-order:          9
+order:          10
 excerpt:        "Task runners supported by continuousphp."
 ---
-In DevOps practices, task runners are very important.  
+In DevOps practices, task runners are very important.
 
-At this point, continuousphp only supports Phing. However, other task runners like Gulp, Grunt, make...
-or even bash commands will be supported soon.
+At this point, continuousphp supports [Phing](https://www.phing.info) and native shell scripts. However,
+other task runners like Gulp, Grunt, make... will be supported soon.
 
 <div class="row panel callout warning clearfix">
   <h2 class="left"><i class="fa fa-exclamation-triangle"></i></h2>

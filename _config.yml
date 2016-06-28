@@ -10,6 +10,8 @@ github_username:  continuousphp
 facebook_appid: 674941435932855
 image: "/assets/continuousphp-share.jpg"
 robots: 'noindex,nofollow,noarchive,noodp'
+head: 'head.html'
+scripts: 'scripts.html'
 
 # Build settings
 markdown: redcarpet

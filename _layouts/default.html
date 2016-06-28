@@ -6,7 +6,7 @@
 <html class="no-js adblock" lang="en" prefix="og: http://ogp.me/ns#" ng-app="webApp">
 <!--<![endif]-->
 
-{% include head.html %}
+{% include {{site.head}} %}
 
 <body>
   <toast></toast>
@@ -212,7 +212,7 @@
     </div>
   </div>
 
-  {% include scripts.html %}
+  {% include {{site.scripts}} %}
 
 </body>
 

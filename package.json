@@ -11,8 +11,5 @@
   "bugs": {
     "url": "https://github.com/continuousphp/doc/issues"
   },
-  "homepage": "https://github.com/continuousphp/doc#readme",
-  "devDependencies": {
-    "grunt-hardlink": "^0.2.0"
-  }
+  "homepage": "https://github.com/continuousphp/doc#readme"
 }

@@ -3,7 +3,7 @@ layout:         post
 title:          "Let Continuous Deploy Agent take care of your deployments"
 date:           2016-06-30 09:00:00
 author:         'fdewinne'
-image:          '/assets/2016-03-10/irc.png'
+image:          '/assets/2016-06-30/deploy-agent.png'
 hasDescription: false
 categories:     news
 ---

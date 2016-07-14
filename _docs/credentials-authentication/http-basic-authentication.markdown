@@ -10,4 +10,4 @@ you can use HTTP Basic Authentication to access them during your build. Simply g
 of your pipeline configuration and enter your HTTP Basic credentials to make your dependencies available
 during your build.
 
-![HTTP Basic Authentication](/site/assets/doc/credentials-authentication/http-basic-authentication.png)
+![HTTP Basic Authentication](/assets/doc/credentials-authentication/http-basic-authentication.png)

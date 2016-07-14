@@ -9,4 +9,4 @@ If you have private repositories on Bitbucket/Gitlab or a Satis/Toran Proxy with
 you can use SSH Keys to access them during your build. Simply go to the *Build Settings* of your pipeline
 configuration and enter your private SSH Keys to make them available in every container of your build. 
 
-![SSH Keys](/site/assets/doc/credentials-authentication/ssh.png)
+![SSH Keys](/assets/doc/credentials-authentication/ssh.png)

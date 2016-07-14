@@ -14,7 +14,7 @@ access all the services you need on AWS!
   Our containers are equipped with the latest version of the <a href="https://aws.amazon.com/cli/" target="_blank">AWS Command Line Interface</a>. No need to install it yourself!
 </div>
 
-![AWS Credentials](/site/assets/doc/credentials-authentication/aws.png)
+![AWS Credentials](/assets/doc/credentials-authentication/aws.png)
 
 The credentials will be injected automatically into each container, so that you can access
 Amazon Web Services at each stage of your build. If you want to deploy using

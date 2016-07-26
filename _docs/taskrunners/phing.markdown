@@ -28,7 +28,7 @@ be included in the Testing package. You can specify them in the *Build Settings*
 However, at this stage, don't try to interact with databases or other system dependencies, because the tests will run in a
 separate container. Please check the next section <a href="#before-running-the-tests">Before running the tests</a> for creating and initializing databases.
 
-![Phing - Testing Package](/site/assets/doc/taskrunners/phing/phing-testing-package.png)
+![Phing - Testing Package](/assets/doc/taskrunners/phing/phing-testing-package.png)
 
 ## Before running the tests
 
@@ -39,7 +39,7 @@ to test execution.
 At this tage, you can create and initialize databases. However, changes on your source code won't have an impact on the Testing
 or Deployment package.
 
-![Phing - Before Tests](/site/assets/doc/taskrunners/phing/phing-before-tests.png)
+![Phing - Before Tests](/assets/doc/taskrunners/phing/phing-before-tests.png)
 
 ## Before creating the Deployment package
 
@@ -49,7 +49,7 @@ be included in the Deployment package. You can specify them in the *Package Sett
 However, at this stage, don't try to interact with databases or other system dependencies, because the tests will run in a
 separate container. Please check the previous section <a href="#before-running-the-tests">Before running the tests</a> for creating and initializing databases.
 
-![Phing - Deployment Package](/site/assets/doc/taskrunners/phing/phing-deployment-package.png)
+![Phing - Deployment Package](/assets/doc/taskrunners/phing/phing-deployment-package.png)
 
 ## Writing Targets
 

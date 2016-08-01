@@ -47,3 +47,7 @@ this hook or the deployment key, you can recreate it through the "Reset hook" bu
 Any pull request made for a configured branch will start a new build using the specific Continuous Deployment Pipeline.
 Keep in mind that the build of a pull request will create a deployment package (available through the API) but won't
 execute the deployment step.
+
+## GitHub Access Token
+Your GitHub Token is used for all requests to the GitHub API (Cloning of the repository, installation of dependencies, ...) but
+you can also use it directly by getting it from the environment variable **GITHUB_TOKEN**.

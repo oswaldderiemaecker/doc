@@ -3,7 +3,7 @@ layout:         doc
 title:          "Zend Server Deployment - Documentation"
 category:       "deployment"
 logo:           zend-server
-order:          2
+order:          5
 excerpt:        "Deploy your applications to one or more Zend Servers."
 ---
 

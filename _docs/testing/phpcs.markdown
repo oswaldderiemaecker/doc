@@ -12,7 +12,7 @@ excerpt:        "Test your application with PHPCS."
 ## Installation
 You can use PHPCS on continuousphp by installing it via composer. Simply add it to your *composer.json* and update your *composer.lock* by running a *composer update*.
 
-```yaml
+```json
 "require-dev": {
   "squizlabs/php_codesniffer": "~2.5.0"
 }

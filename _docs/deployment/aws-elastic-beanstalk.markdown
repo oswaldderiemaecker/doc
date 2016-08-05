@@ -3,7 +3,7 @@ layout:         doc
 title:          "AWS Elastic Beanstalk - Documentation"
 category:       "deployment"
 logo:           aws-elastic-beanstalk
-order:          1
+order:          4
 excerpt:        "Deploy your applications to AWS EC2 in a few clicks."
 ---
 

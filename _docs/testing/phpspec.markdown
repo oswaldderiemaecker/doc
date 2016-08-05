@@ -12,7 +12,7 @@ excerpt:        "Test your application with phpspec."
 ## Installation
 You can use phpspec on continuousphp by installing it via composer. Simply add it to your *composer.json* and update your *composer.lock* by running a *composer update*.
 
-```yaml
+```json
 "require-dev": {
   "phpspec/phpspec": "~2.4"
 }

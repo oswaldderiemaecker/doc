@@ -3,7 +3,7 @@ layout:         doc-toc
 title:          "Containers - Documentation"
 category:       "containers"
 logo:           docker 
-order:          5
+order:          6
 excerpt:        "continuousphp docker containers."
 ---
 continuousphp docker containers include by default the following services: 

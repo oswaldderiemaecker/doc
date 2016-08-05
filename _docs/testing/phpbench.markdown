@@ -12,7 +12,7 @@ excerpt:        "Test your application with PhpBench."
 ## Installation
 You can use PhpBench on continuousphp by installing it via composer. Simply add it to your *composer.json* and update your *composer.lock* by running a *composer update*.
 
-```yaml
+```json
 "require-dev": {
   "phpbench/phpbench": "~0.10.0"
 }

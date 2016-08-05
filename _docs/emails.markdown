@@ -3,6 +3,6 @@ layout:         doc-toc
 title:          "Emails - Documentation"
 category:       "emails"
 logo:           emails
-order:          12
+order:          14
 sitemap:        false
 ---

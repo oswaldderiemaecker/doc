@@ -3,7 +3,7 @@ layout:         doc
 title:          "AWS CodeDeploy - Documentation"
 category:       "deployment"
 logo:           aws-code-deploy
-order:          1
+order:          3
 excerpt:        "Deploy your applications to AWS EC2 in a few clicks."
 ---
 

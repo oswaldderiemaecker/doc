@@ -12,7 +12,7 @@ excerpt:        "Test your application with PHPUnit."
 ## Installation
 You can use PHPUnit on continuousphp by installing it via composer. Simply add it to your *composer.json* and update your *composer.lock* by running a *composer update*.
 
-```yaml
+```json
 "require-dev": {
   "phpunit/phpunit": "~5.1"
 }

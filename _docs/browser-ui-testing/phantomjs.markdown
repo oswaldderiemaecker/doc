@@ -10,7 +10,7 @@ has fast and native support for various web standards: DOM handling, CSS selecto
 
 <div class="row panel callout warning clearfix">
   <h2 class="left"><i class="fa fa-exclamation-triangle"></i></h2>
-  Our containers are equipped with the version 2.1.1 of PhantomJS. No need to install it yourself!
+  Our containers are pre-installed with the version 2.1.1 of PhantomJS. No need to install it yourself!
 </div>
 
 ## Installation & Usage

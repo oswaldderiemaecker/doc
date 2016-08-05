@@ -3,7 +3,7 @@ layout:         doc
 title:          "Generic Tarball deployment - Documentation"
 category:       "deployment"
 logo:           generic-tarball
-order:          3
+order:          1
 excerpt:        "A generic deployment type that lets you handle the reception of the package."
 ---
 
@@ -17,8 +17,8 @@ will be notified with a HTTP POST request containing the package URL. This URL i
 
 <div class="row panel callout warning clearfix">
   <h2 class="left"><i class="fa fa-exclamation-triangle"></i></h2>
-  For security reason, we strongly encourage you to not trust the package URL contained in the hook.
-  Get a new download URL from the API for this specific build instead in order to prevent deployment injection.
+  For security reasons, we strongly encourage you not to trust the package URL contained in the hook.
+  Instead, get a new download URL from the API for this specific build, in order to prevent deployment injection.
   Or simply use our <a href="https://github.com/continuousphp/deploy-agent">Deploy Agent</a> to take care of your
   deployments.
 </div>

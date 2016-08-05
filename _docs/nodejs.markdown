@@ -3,7 +3,7 @@ layout:         doc-toc
 title:          "Node.js Versions - Documentation"
 category:       "nodejs"
 logo:           nodejs 
-order:          11
+order:          13
 excerpt:        "Node.js versions supported by continuousphp."
 ---
 continuousphp supports several Node.js versions.

@@ -12,7 +12,7 @@ excerpt:        "Test your application with Codeception."
 ## Installation
 You can use Codeception on continuousphp by installing it via composer. Simply add it to your *composer.json* and update your *composer.lock* by running a *composer update*.
 
-```yaml
+```json
 "require-dev": {
   "codeception/codeception": "~2.1.0"
 }

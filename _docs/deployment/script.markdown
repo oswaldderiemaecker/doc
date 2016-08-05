@@ -17,9 +17,9 @@ You can either a script that is part of your repository's code or execute shell 
 ![Script Deployment configuration](/assets/doc/deployment/script/configuration.png)
 
 ## Package and source code
-Before executing your scripts, the application package will automatically be downloaded and extracted. And your script(s) will
-be prefixed by a `cd ...` command to change the current working directory to the root of your application. This way, you can
-execute your script commands without changing the path beforehand.
+Before executing your scripts, the application package will automatically be downloaded and extracted. continuousphp will then
+change automatically the current working directory to the root of your application. This way, you can execute your script
+commands without changing the path beforehand.
 
 Alternatively, you can use the environment variable `PACKAGE_PATH` to get the path to the deployment package.
 

@@ -9,7 +9,7 @@ excerpt:        "PostgreSQL support by continuousphp"
 
 ## Specification 
 
-Our containers run PostgreSQL 9.3 including common and contrib package with the following PHP extensions:
+Our containers run PostgreSQL 9.5 including common and contrib package with the following PHP extensions:
 
 * pdo_pgsql
 * pgsql

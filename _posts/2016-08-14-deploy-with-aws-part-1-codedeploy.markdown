@@ -231,12 +231,12 @@ Finally, let's configure continuousphp to deploy our [Sample Application](https:
 
 This application include the following files:
 
-* composer.json with our dependency (Zend Framework 2.x / Apigility / Phinx)
-* build.xml with our phing tasks
+* composer.json with our dependencies (Zend Framework 2.x / Apigility / Phinx)
+* build.xml with the phing targets
 * phinx.yml.dist with the Phinx Database migration configuration
-* appspec.yml with CodeDeploy configuration and hooks
-* behat.yml for Behat configuration
-* tests/phpunit.xml for PHPUnit configuration
+* appspec.yml with the CodeDeploy configuration and hooks
+* behat.yml with the Behat configuration
+* tests/phpunit.xml with the PHPUnit configuration
 
 **To Fork our Sample Application**
 
@@ -244,17 +244,24 @@ This application include the following files:
 2. Visit our [Sample Application](https://github.com/oswaldderiemaecker/aws-demo-zf-apigility-phinx).
 3. Click on **Fork* button at the top right
 4. Select where you want to fork the repository
+5. Clone the repository
+6. Create the **develop** branch:
+
+```bash
+git checkout -B develop
+git push origin develop
+```
 
 ### Application Projet Set-up
 
 **To set-up our application project in continuousphp**
 
-1. Type in the omnibar the name of the application: aws-demo
+1. Type in the omnibar the name of the application: **aws-demo**
 2. The fork should appear in the Project List (if not please wait a little that projects list update)
 3. Click on **Setup**
 4. Click on **Setup Repository**
 5. Click on **+** to add a deployment pipeline
-6. Select the **master** branch
+6. Select the **develop** branch
 
 ### Deployment pipeline Configuration
 
@@ -262,7 +269,7 @@ This application include the following files:
  
 1. In the Build Settings (Step 1):
    1. In the **PHP VERSIONS**, select the PHP versions: **5.6** / **7.0**
-   2. In the **CREDENTIALS**, click on the **+**, add the AWS IAM Credential **deployment.testing* User Access Key and Secret Key we created in step [Set-up the IAM permissions](#set-up-the-iam-permissions)
+   2. In the **CREDENTIALS**, click on the **+**, add the AWS IAM Credential **deployment.testing** User Access Key and Secret Key we created in step [Set-up the IAM permissions](#set-up-the-iam-permissions)
       * Name: AWSCodeDeployDemo
       * Region: US West (Oregon)
       * Access Key: XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -289,7 +296,7 @@ This application include the following files:
       * IAM Profile: The profile we created in Step 1.2
       * Application: mycompany_app
       * Group: testing
-      * S3 Bucket: mycompany-package-testing/testing
+      * S3 Bucket: mycompany-package-testing
 
 ## Deploy the apps 
 

@@ -161,3 +161,16 @@ Feature: Navigating through the Justice League's secret website
     And I press "Log In"
     Then I should be on "/super-villain-overview.html"
 ```
+
+## Environment Variables
+
+You can use Environment Variables to configure your testing environment. Simply go to the *Test Settings* (step 2
+of the pipeline configuration), open the Behat configuration and add one more Environment Variables:
+
+![Behat Env Vars](/assets/doc/testing/behat/env-vars.png)
+
+### Encryption
+
+Environment Variables can (optionally) be encrypted. Pay attention that, once a variable is encrypted, you can no longer obtain
+it's value. An encrypted Environment Variable can only be decrypted during a build by continuousphp's workers. Encrypted
+Environment Variables will be masked in the build output.

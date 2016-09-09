@@ -165,7 +165,7 @@ Feature: Navigating through the Justice League's secret website
 ## Environment Variables
 
 You can use Environment Variables to configure your testing environment. Simply go to the *Test Settings* (step 2
-of the pipeline configuration), open the Behat configuration and add one more Environment Variables:
+of the pipeline configuration), open the Behat configuration and add one or more Environment Variables:
 
 ![Behat Env Vars](/assets/doc/testing/behat/env-vars.png)
 

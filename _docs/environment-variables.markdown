@@ -19,7 +19,7 @@ Environment Variables can (optionally) be encrypted. Pay attention that, once a 
 it's value. An encrypted Environment Variable can only be decrypted during a build by continuousphp's workers. Encrypted
 Environment Variables will be masked in the build output.
 
-## When creating the Testing Package
+## When creating the Test Package
 
 You can use Environment Variables during the creation of the Testing Package. Simply go to the *Build Settings* (step 1
 of the pipeline configuration) and add one or more Environment Variables :

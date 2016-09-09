@@ -46,4 +46,15 @@ As soon as the testing package is created, the tests will start:
 
 ![phpspec build end](/assets/doc/testing/phpspec/build-end.png)
 
-And that's it! You just configured your application to be tested with phpspec!
+## Environment Variables
+
+You can use Environment Variables to configure your testing environment. Simply go to the *Test Settings* (step 2
+of the pipeline configuration), open the phpspec configuration and add one or more Environment Variables:
+
+![phpspec Env Vars](/assets/doc/testing/phpspec/env-vars.png)
+
+### Encryption
+
+Environment Variables can (optionally) be encrypted. Pay attention that, once a variable is encrypted, you can no longer obtain
+it's value. An encrypted Environment Variable can only be decrypted during a build by continuousphp's workers. Encrypted
+Environment Variables will be masked in the build output.

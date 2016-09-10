@@ -3,7 +3,7 @@ layout:         doc-toc
 title:          "Deployment - Documentation"
 category:       "deployment"
 logo:           deployment
-order:          4
+order:          5
 excerpt:        "Deployment types supported by continuousphp."
 ---
 continuousphp supports several deployment types.

@@ -3,7 +3,7 @@ layout:         doc-toc
 title:          "Task runners - Documentation"
 category:       "taskrunners"
 logo:           task-runner
-order:          12
+order:          13
 excerpt:        "Task runners supported by continuousphp."
 ---
 In DevOps practices, task runners are very important.

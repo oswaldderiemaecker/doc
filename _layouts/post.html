@@ -49,52 +49,5 @@ layout: default
         </span>
       </span>
     </div>
-    {% raw %}
-    <div class="columns medium-6 small-12 social clearfix">
-      <ul class="inline-list">
-        <li>
-          <a facebook class="facebookShare"
-             data-url="{{ cannonicalUrl }}"
-             data-title="{{ Head.title() }}"
-             data-shares="shares">{{ shares }}</a>
-        </li>
-        <li>
-          <div linkedin
-               class="linkedinShare"
-               data-url="{{ cannonicalUrl }}"
-               data-title="{{ Head.title() }}"
-               data-summary="{{ Head.description() }}"
-               data-shares="linkedinshares">{{ linkedinshares }}</div>
-        </li>
-        <li>
-          <div gplus
-               class="g-plus"
-               data-size="tall"
-               data-annotation="bubble"
-               data-href="{{ cannonicalUrl }}"
-               data-action='share'></div>
-        </li>
-        <li>
-          <a twitter
-             data-lang="en"
-             data-count="horizontal"
-             data-url="{{ cannonicalUrl }}"
-             data-via="continuousphp"
-             data-size="medium"
-             data-text="{{ Head.title() }}" ></a>
-        </li>
-      </ul>
-    </div>
-    {% endraw %}
   </footer>
-  {% if page.comments %}
-  <div class="row">
-    <dir-disqus disqus-shortname="continuousphp"
-                disqus-identifier="{{ page.url | replace:'index.html','' }}"
-                disqus-title="{{ page.title }}"
-                disqus-url="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"
-                disqus-config-language="en">
-    </dir-disqus>
-  </div>
-  {% endif %}
 </article>

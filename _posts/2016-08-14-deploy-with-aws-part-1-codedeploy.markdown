@@ -297,7 +297,7 @@ git commit -m "Modifying the layout"
 git push
 ```
 
-Now everytime you push in the develop branch, your develop pipeline is triggered and continuousphp build, test and deploy your application.
+Now everytime you push in the develop branch, your develop pipeline is triggered and continuousphp build, test and deploy your application upon succesful build.
 
 ## Notes
 

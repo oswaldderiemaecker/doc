@@ -282,7 +282,7 @@ These are key files to set-up your application installation, testing, and deploy
 
 **To deploy the application with continuousphp**
 
-1. Click on the **Play** button on the top right of the projet
+1. Click on the **Play** button on the top right of the project
 2. Select the **develop** branch
 3. The build is launched, it will create the testing and dist package, then run tests (behat and phpunit) for the choosen PHP Versions, then deploy the application.
 4. In the deploy console, you should see **Deployment successfully started**

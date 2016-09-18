@@ -48,17 +48,17 @@ You are now ready to create the S3 bucket in which the continuousphp package wil
 
 1. Sign into the AWS Management Console and open the Amazon S3 console at https://console.aws.amazon.com/s3.
 2. Click Create Bucket.
-3. In the Create a Bucket dialog box, in the Bucket Name box, enter the bucket name, in this example we will use **"mycompany-package-testing"**.
+3. In the Create a Bucket dialog box, in the Bucket Name box, enter the bucket name, in this example we will use **"mycompany-package"**.
 4. In the Region box, select a region from the drop-down list.
 5. Click Create.
 
-When Amazon S3 successfully creates your bucket, the console displays your empty bucket **"mycompany-package-testing"** in the Buckets panel. 
+When Amazon S3 successfully creates your bucket, the console displays your empty bucket **"mycompany-package"** in the Buckets panel. 
 
 For more information, visit the [AWS S3 Bucket documentation](http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html)
 
 ## Set up the IAM permissions
 
-To start we are going to create an IAM policy to grant continuousphp the permission to upload the package to your bucket **"mycompany-package-testing"** and communicate with CodeDeploy to deploy it.
+To start we are going to create an IAM policy to grant continuousphp the permission to upload the package to your bucket **"mycompany-package"** and communicate with CodeDeploy to deploy it.
 
 **To create the User policy**
 
@@ -81,7 +81,7 @@ To start we are going to create an IAM policy to grant continuousphp the permiss
                 "s3:PutObjectAcl",
                 "s3:PutObject"
             ],
-            "Resource": "arn:aws:s3:::mycompany-package-testing/*"
+            "Resource": "arn:aws:s3:::mycompany-package/testing/*"
         },
         {
             "Effect": "Allow",
@@ -138,10 +138,11 @@ Let's create our infrastructure, for this we will use this [CloudFormation templ
 
 To create your key pair using the Amazon EC2 console
 
-1. Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/. In the navigation pane, under NETWORK & SECURITY, choose Key Pairs.
-2. Enter a name for the new key pair in the Key pair name field of the Create Key Pair dialog box, and then choose Create.
+1. Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/. 
+2. In the navigation pane, under NETWORK & SECURITY, choose Key Pairs.
+3. Enter a name for the new key pair in the Key pair name field of the Create Key Pair dialog box, and then choose Create.
 The private key file is automatically downloaded by your browser. The base file name is the name you specified as the name of your key pair, and the file name extension is .pem. Save the private key file in a safe place.
-3. If you will use an SSH client on a Mac or Linux computer to connect to your Linux instance, use the following command to set the permissions of your private key file so that only you can read it.
+4. If you will use an SSH client on a Mac or Linux computer to connect to your Linux instance, use the following command to set the permissions of your private key file so that only you can read it.
 
 ```bash
 chmod 400 my-key-pair.pem
@@ -273,7 +274,8 @@ git push origin develop
       * IAM Profile: The profile we created in Step 1.2
       * Application: mycompany_app
       * Group: testing
-      * S3 Bucket: mycompany-package-testing
+      * S3 Bucket: mycompany-package/testing
+   3. Check the **enable deployment for successful builds** checkbox 
 
 ## Deploy the apps 
 

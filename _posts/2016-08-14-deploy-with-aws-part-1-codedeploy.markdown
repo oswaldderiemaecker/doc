@@ -301,7 +301,6 @@ Now everytime you push in the develop branch, your develop pipeline is triggered
 
 ## Notes
 
-Don't hesitate to contact us if you like to have more information about this tutorials.
-
-Now you can [start using continuousphp](https://continuousphp.com/)  
-We do hope you will enjoy using it for your projects. Any question, don’t hesitate to ask us using the chat button!
+The CloudFormation used in this tutorial is an example and should not be used for production use. 
+The Amazon Machine Image (AMI) provided in the CloudFormation is for study purpose.
+If you like to know more about production configuration, do not hesitate to contact us using the chat button!.

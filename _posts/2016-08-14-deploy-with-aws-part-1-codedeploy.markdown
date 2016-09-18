@@ -288,7 +288,7 @@ git push origin develop
 4. In the deploy console, you should see **Deployment successfully started**
 5. Login to the AWS console/AWS CodeDeploy to see the details.
 
-You can now modify your code with your favorite editor, e.g edit the file module/Application/view/layout/layout.phtml, add some text, save the file, then, commit, push like:
+You can now modify your code with your favorite editor, in example, edit the file module/Application/view/layout/layout.phtml, add some text, save the file, then, commit, push like:
 
 ```bash
 git checkout develop

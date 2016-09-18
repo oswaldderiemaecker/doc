@@ -15,6 +15,7 @@ This tutorial explains how to configure continuousphp and AWS to deploy an PHP a
 - [Set-up the package S3 bucket](#set-up-the-package-s3-bucket)
 - [Set-up the IAM permissions](#set-up-the-iam-permissions)
 - [Set-up the PHP EC2 autoscaling](#set-up-the-php-ec2-autoscaling)
+  - [Creating the EC2 Key Pair](#creating-the-ec2-key-pair)
   - [Set-up the infrastructure](#set-up-the-infrastructure)
   - [Set-up the AWS CodeDeploy Agent](#set-up-the-aws-codedeploy-agent)
 - [Set-up CodeDeploy](#set-up-codedeploy)
@@ -108,58 +109,22 @@ Now let's create an IAM user with an Access Key and attach the policy we've just
 1. Sign in to the Identity and Access Management (IAM) console at https://console.aws.amazon.com/iam/.
 2. In the navigation pane, choose Users and then choose Create New Users. 
 3. Enter the following user: **deployment.testing**
-4. Generate an access key this user at this time with select Generate an access key for each user.
-5. Choose Create.
-6. Attach the policy **testingDeployment** to our user **deployment.testing**. 
+4. Generate an access key for this user at this time by selecting "Generate an access key for each user".
+5. Save the generate access key in a safe place.
+6. Choose Create.
+7. Edit the user, goto Permission and Attach the policy **testingDeployment** to our user **deployment.testing**. 
 
-And now let's create the CodeDeploy policy which grant to CodeDeploy the permissions to get informations about the infrastructure EC2 Instance.
-
-**To create the CodeDeploy policy**
-
-1. Sign in to the IAM console at https://console.aws.amazon.com/iam/ with your user that has administrator permissions.
-2. In the navigation pane, choose Policies.
-3. In the content pane, choose Create Policy.
-4. Next to Create Your Own Policy, choose Select.
-5. For Policy Name, type **CodeDeploy**.
-6. For Policy Document, paste the following policy.
-
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "autoscaling:CompleteLifecycleAction",
-        "autoscaling:DeleteLifecycleHook",
-        "autoscaling:DescribeAutoScalingGroups",
-        "autoscaling:DescribeLifecycleHooks",
-        "autoscaling:PutLifecycleHook",
-        "autoscaling:RecordLifecycleActionHeartbeat",
-        "ec2:DescribeInstances",
-        "ec2:DescribeInstanceStatus",
-        "tag:GetTags",
-        "tag:GetResources"
-      ],
-      "Resource": "*"
-    }
-  ]
-}
-```
-
-7\. Choose Validate Policy and ensure that no errors display in a red box at the top of the screen. Correct any that are reported.
-
-8\. Choose Create Policy.
-
-And finally let's create the CodeDeploy Role and attach the CodeDeploy policy.
+And now let's create the CodeDeploy Role which grant to CodeDeploy the permissions to get informations about the infrastructure EC2 Instance.
 
 **To create a new Role and attach the CodeDeploy policy**
 
 1. Sign in to the Identity and Access Management (IAM) console at https://console.aws.amazon.com/iam/.
 2. In the navigation pane, choose Roles and then choose Create New Roles. 
-3. Enter the following user: **CodeDeploy**
-5. Choose Create.
-6. Attach the policy **CodeDeploy** to our **CodeDeploy** role. 
+3. Enter the following Role name: **CodeDeploy**
+4. In the AWS Service Roles, select **AWS CodeDeploy**
+5. Attach the AWSCodeDeployRole
+6. Choose Create.
+7. Attach the policy **CodeDeploy** to our **CodeDeploy** role. 
 
 For more information, visit the [AWS IAM User documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html) and the [Tutorial: Create and Attach Your First Customer Managed Policy](http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_managed-policies.html)
 
@@ -168,6 +133,19 @@ For more information, visit the [AWS IAM User documentation](http://docs.aws.ama
 We have set-up all the IAM permissions needed for continuousphp to put its builds package to the S3 bucket, and trigger a deployment with CodeDeploy. Also CodeDeploy has a Role that grant it access to your EC2 informations like Instance IDs, Tags, Autoscaling.
 
 Let's create our infrastructure, for this we will use this [CloudFormation template](https://github.com/oswaldderiemaecker/continuousphp-aws-cloudformation-template).
+
+### Creating the EC2 Key Pair
+
+To create your key pair using the Amazon EC2 console
+
+1. Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/. In the navigation pane, under NETWORK & SECURITY, choose Key Pairs.
+2. Enter a name for the new key pair in the Key pair name field of the Create Key Pair dialog box, and then choose Create.
+The private key file is automatically downloaded by your browser. The base file name is the name you specified as the name of your key pair, and the file name extension is .pem. Save the private key file in a safe place.
+3. If you will use an SSH client on a Mac or Linux computer to connect to your Linux instance, use the following command to set the permissions of your private key file so that only you can read it.
+
+```bash
+chmod 400 my-key-pair.pem
+```
 
 ### Set-up the infrastructure
 
@@ -188,7 +166,7 @@ Fork this projet and clone it locally.
 
 1. On the Specify Details page, type a stack name in the Stack name box.
 2. In the Parameters section
-  * InstanceType: t2.nano
+  * InstanceType: t2.micro
   * KeyName: The EC2 Key Pair to allow SSH access to the instances
   * OperatorEMail: EMail address to notify if there are any scaling operations
   * SSHLocation: The IP address range that can be used to SSH to the EC2 instances
@@ -216,8 +194,7 @@ We are alomost there, Let's set up CodeDeploy with the following steps:
 3. Choose Create New Application.
 4. In the Application Name box, type the application's name: **mycompany_app**. (In an AWS account, an AWS CodeDeploy application name can be used only once per region. You can reuse an application name in different regions.)
 5. In the Deployment Group Name box, type a name that describes the deployment group: **testing**.
-6. In the list of tags, select the tag type and fill in the Key and Value boxes with the value of the key-value pair you will use to tag the instances.
-As you begin adding key-value pair information, a new row appears for you to add another key-value pair if desired. You can repeat this step for up to 10 key-value pairs.
+6. In the Add Instances section, set the Tag Type to AutoScaling Group and select your autoscaling group.
 7. In the Deployment Config list, choose the deployment configuration: **OneAtATime**
 8. In the Service Role ARN box, choose an Amazon Resource Name (ARN): **arn:aws:iam::00000000000:role/CodeDeploy** 
 

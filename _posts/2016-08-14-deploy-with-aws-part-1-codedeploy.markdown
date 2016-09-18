@@ -21,7 +21,7 @@ This tutorial explains how to configure continuousphp and AWS to deploy an PHP a
 - [Set-up CodeDeploy](#set-up-codedeploy)
 - [Set-up continuousphp](#set-up-continuousphp)
   - [Fork the sample application](#fork-the-sample-application)
-  - [Application Projet Set-up in continuousphp](#application-project-set-up-in-continuousphp)
+  - [Application Project Set-up in continuousphp](#application-project-set-up-in-continuousphp)
   - [Deployment pipeline Configuration](#deployment-pipeline-configuration)
 - [Deploy the apps](#deploy-the-apps)
 - [Notes](#notes)
@@ -170,7 +170,7 @@ Fork this projet and clone it locally.
   * InstanceType: t2.micro
   * KeyName: The EC2 Key Pair to allow SSH access to the instances
   * OperatorEMail: EMail address to notify if there are any scaling operations
-  * S3AppsBucket: The S3 Bucket path **mycompany-package-testing/testing** that you created in [Set-up the package S3 bucket](#set-up-the-package-s3-bucket): 
+  * S3AppsBucket: The S3 Bucket path **mycompany-package-testing/testing** that you created in [Set-up the package S3 bucket](#set-up-the-package-s3-bucket)
   * SSHLocation: The IP address range that can be used to SSH to the EC2 instances
 3. When you are satisfied with the parameter values, click Next to proceed with setting options for your stack.
 4. Click Next Step to proceed with reviewing your stack.
@@ -208,15 +208,6 @@ For more information, visit the [AWS CodeDeploy Deployments](http://docs.aws.ama
 
 Finally, let's configure continuousphp to deploy our [Sample Application](https://github.com/oswaldderiemaecker/aws-demo-zf-apigility-phinx).
 
-This application include the following files:
-
-* composer.json with our dependencies (Zend Framework 2.x / Apigility / Phinx)
-* build.xml with the phing targets
-* phinx.yml.dist with the Phinx Database migration configuration
-* appspec.yml with the CodeDeploy configuration and hooks
-* behat.yml with the Behat configuration
-* tests/phpunit.xml with the PHPUnit configuration
-
 **To Fork our Sample Application**
 
 1. Login to your github account.
@@ -231,7 +222,18 @@ git checkout -B develop
 git push origin develop
 ```
 
-### Application Projet Set-up in continuousphp
+This application include the following files:
+
+* composer.json with our dependencies (Zend Framework 2.x / Apigility / Phinx)
+* build.xml with the phing targets
+* phinx.yml.dist with the Phinx Database migration configuration
+* appspec.yml with the CodeDeploy configuration and hooks
+* behat.yml with the Behat configuration
+* tests/phpunit.xml with the PHPUnit configuration
+
+These are key files to set-up your application installation, testing, and deployment, have a look at them to get a better understanding.
+
+### Application Project Set-up in continuousphp
 
 **To set-up our application project in continuousphp**
 
@@ -301,6 +303,7 @@ Now everytime you push in the develop branch, your develop pipeline is triggered
 
 ## Notes
 
-The CloudFormation used in this tutorial is an example and should not be used for production use. 
-The Amazon Machine Image (AMI) provided in the CloudFormation is for study purpose.
+* The CloudFormation used in this tutorial is an example and should not be used for production use. 
+* The Amazon Machine Image (AMI) provided in the CloudFormation is for study purpose.
+
 If you like to know more about production configuration, do not hesitate to contact us using the chat button!.

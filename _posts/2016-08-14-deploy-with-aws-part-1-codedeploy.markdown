@@ -21,7 +21,7 @@ This tutorial explains how to configure continuousphp and AWS to deploy an PHP a
 - [Set-up CodeDeploy](#set-up-codedeploy)
 - [Set-up continuousphp](#set-up-continuousphp)
   - [Fork the sample application](#fork-the-sample-application)
-  - [Application Projet Set-up](#application-project-set-up)
+  - [Application Projet Set-up in continuousphp](#application-project-set-up-in-continuousphp)
   - [Deployment pipeline Configuration](#deployment-pipeline-configuration)
 - [Deploy the apps](#deploy-the-apps)
 - [Notes](#notes)
@@ -170,6 +170,7 @@ Fork this projet and clone it locally.
   * InstanceType: t2.micro
   * KeyName: The EC2 Key Pair to allow SSH access to the instances
   * OperatorEMail: EMail address to notify if there are any scaling operations
+  * S3AppsBucket: The S3 Bucket path **mycompany-package-testing/testing** that you created in [Set-up the package S3 bucket](#set-up-the-package-s3-bucket): 
   * SSHLocation: The IP address range that can be used to SSH to the EC2 instances
 3. When you are satisfied with the parameter values, click Next to proceed with setting options for your stack.
 4. Click Next Step to proceed with reviewing your stack.
@@ -230,7 +231,7 @@ git checkout -B develop
 git push origin develop
 ```
 
-### Application Projet Set-up
+### Application Projet Set-up in continuousphp
 
 **To set-up our application project in continuousphp**
 
@@ -259,7 +260,7 @@ git push origin develop
    3. Still in the **PHING** section, add the following variables: 
       * db.host: 127.0.0.1
       * db.port: 3306
-      * db.dbname: skeleton
+      * db.name: skeleton
       * db.username: root
       * db.password:
    4. Click on **Next** to move to the Package Settings
@@ -279,7 +280,17 @@ git push origin develop
 
 ## Deploy the apps 
 
+**To deploy the application with continuousphp**
+
+1. Click on the **Play** button on the top right of the projet
+2. Select the **develop** branch
+3. The build is launched, it will create the testing and dist package, then run tests (behat and phpunit) for the choosen PHP Versions, then deploy the application.
+4. In the deploy console, you should see **Deployment successfully started**
+5. Login to the AWS console/AWS CodeDeploy to see the details.
+
 ## Notes
+
+Don't hesitate to contact us if you like to have more information about this tutorials.
 
 Now you can [start using continuousphp](https://continuousphp.com/)  
 We do hope you will enjoy using it for your projects. Any question, don’t hesitate to ask us using the chat button!

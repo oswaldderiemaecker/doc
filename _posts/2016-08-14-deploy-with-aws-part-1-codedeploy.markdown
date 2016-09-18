@@ -42,7 +42,7 @@ So let's start and create an AWS account for your testing environment.
 
 ## Set-up the package S3 bucket
 
-You are now ready to create the S3 bucket in which the continuousphp package will be uploaded for AWS CodeDeploy.
+You are now ready to create the S3 bucket in which the continuousphp package will be uploaded for AWS CodeDeploy to deploy.
 
 **To create a bucket**
 
@@ -149,8 +149,6 @@ chmod 400 my-key-pair.pem
 ```
 
 ### Set-up the infrastructure
-
-Fork this projet and clone it locally. 
 
 **To create a stack on the AWS CloudFormation console**
 

@@ -28,7 +28,7 @@ This tutorial explains how to configure continuousphp and AWS to deploy an PHP a
 
 ## Set-up the AWS environment accounts
 
-Based on your deployment strategy you may plan to deploy your application in differents environments like testing, preproduction and production.
+Based on your deployment strategy you may plan to deploy your application in differents environments like testing, staging and production.
 AWS recommends the separation of responsibilities, for this you should create as many AWS account as environment you might require.
 
 This tutorials explain the deployment in a testing environment. You can use it as a base for any other environments you might need.

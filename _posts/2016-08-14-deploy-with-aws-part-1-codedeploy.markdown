@@ -304,4 +304,4 @@ Now everytime you push in the develop branch, your develop pipeline is triggered
 * The CloudFormation used in this tutorial is an example and should not be used for production use. 
 * The Amazon Machine Image (AMI) provided in the CloudFormation is for study purpose.
 
-If you like to know more about production configuration, do not hesitate to contact us using the chat button!.
+If you like to know more about production configuration or have any questions about this tutorial, do not hesitate to contact us using the chat button!.

@@ -288,6 +288,17 @@ git push origin develop
 4. In the deploy console, you should see **Deployment successfully started**
 5. Login to the AWS console/AWS CodeDeploy to see the details.
 
+You can now modify your code with your favorite editor, e.g edit the file module/Application/view/layout/layout.phtml, add some text, save the file, then, commit, push like:
+
+```bash
+git checkout develop
+git add module/Application/view/layout/layout.phtml
+git commit -m "Modifying the layout"
+git push
+```
+
+Now everytime you push in the develop branch, your develop pipeline is triggered and continuousphp build, test and deploy your application.
+
 ## Notes
 
 Don't hesitate to contact us if you like to have more information about this tutorials.

@@ -124,7 +124,6 @@ And now let's create the CodeDeploy Role which grants to CodeDeploy the permissi
 4. In the AWS Service Roles, select **AWS CodeDeploy**
 5. Attach the AWSCodeDeployRole
 6. Choose *Create*.
-7. Attach the policy **CodeDeploy** to our **CodeDeploy** role. 
 
 For more information, visit the [AWS IAM User documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html) and the [Tutorial: Create and Attach Your First Customer Managed Policy](http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_managed-policies.html)
 

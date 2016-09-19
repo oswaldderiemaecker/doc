@@ -159,6 +159,8 @@ First, we need to fork the sample application which include our CloudFormation t
 4. Select where you want to fork the repository to
 5. Clone the repository
 
+Let's now create our Infrastructure by creating a CloudFormation Stack.
+
 **Create a stack on the AWS CloudFormation console**
 
 1. Log in to the AWS Management Console and select *CloudFormation* in the Services menu.

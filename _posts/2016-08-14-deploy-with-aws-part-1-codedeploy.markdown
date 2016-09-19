@@ -20,7 +20,7 @@ This tutorial explains how to configure continuousphp and AWS to deploy a PHP ap
   - [Set-up the AWS CodeDeploy Agent](#set-up-the-aws-codedeploy-agent)
 - [Set-up CodeDeploy](#set-up-codedeploy)
 - [Set-up continuousphp](#set-up-continuousphp)
-  - [Fork the sample application](#fork-the-sample-application)
+  - [Prepare the Sample Application](#prepare-the-sample-application)
   - [Application Project Set-up in continuousphp](#application-project-set-up-in-continuousphp)
   - [Deployment pipeline Configuration](#deployment-pipeline-configuration)
 - [Deploy the apps](#deploy-the-apps)
@@ -149,6 +149,16 @@ chmod 400 my-key-pair.pem
 
 ### Set-up the infrastructure
 
+First, we need to fork the sample application which include our CloudFormation template. The infrastructure is now a dependency of our application.
+
+**Fork the Sample Application**
+
+1. Login to your GitHub account.
+2. Visit our [Sample Application](https://github.com/oswaldderiemaecker/aws-demo-zf-apigility-phinx).
+3. Click on **Fork* button at the top right
+4. Select where you want to fork the repository to
+5. Clone the repository
+
 **Create a stack on the AWS CloudFormation console**
 
 1. Log in to the AWS Management Console and select *CloudFormation* in the Services menu.
@@ -201,18 +211,15 @@ For more information, visit the [AWS CodeDeploy Deployments](http://docs.aws.ama
 
 ## Set-up continuousphp
 
-### Fork the Sample Application
+### Prepare the Sample Application
 
 Finally, let's configure continuousphp to deploy our [Sample Application](https://github.com/oswaldderiemaecker/aws-demo-zf-apigility-phinx).
 
-**To Fork our Sample Application**
+As we are going to configure continuousphp in testing environment, we need to create a develop branch, for which we will create a deployment pipeline.
 
-1. Login to your GitHub account.
-2. Visit our [Sample Application](https://github.com/oswaldderiemaecker/aws-demo-zf-apigility-phinx).
-3. Click on **Fork* button at the top right
-4. Select where you want to fork the repository to
-5. Clone the repository
-6. Create the **develop** branch:
+**Preparing our Sample Application**
+
+Create the **develop** branch:
 
 ```bash
 git checkout -B develop

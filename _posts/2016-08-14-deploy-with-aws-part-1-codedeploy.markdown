@@ -230,12 +230,12 @@ git push origin develop
 
 This application include the following files:
 
-* composer.json with our dependencies (Zend Framework 2.x / Apigility / Phinx)
-* build.xml with the phing targets
-* phinx.yml.dist with the Phinx Database migration configuration
-* appspec.yml with the CodeDeploy configuration and hooks
-* behat.yml with the Behat configuration
-* tests/phpunit.xml with the PHPUnit configuration
+* [composer.json](https://github.com/continuousdemo/aws-demo-zf-apigility-phinx/blob/master/composer.json) with our dependencies (Zend Framework 2.x / Apigility / Phinx)
+* [build.xml](https://github.com/continuousdemo/aws-demo-zf-apigility-phinx/blob/master/build.xml) with the phing targets
+* [phinx.yml.dist](https://github.com/continuousdemo/aws-demo-zf-apigility-phinx/blob/master/phinx.yml.dist) with the Phinx Database migration configuration
+* [appspec.yml](https://github.com/continuousdemo/aws-demo-zf-apigility-phinx/blob/master/appspec.yml) with the CodeDeploy configuration and hooks
+* [behat.yml](https://github.com/continuousdemo/aws-demo-zf-apigility-phinx/blob/master/behat.yml) with the Behat configuration
+* [tests/phpunit.xml](https://github.com/continuousdemo/aws-demo-zf-apigility-phinx/blob/master/tests/phpunit.xml) with the PHPUnit configuration
 
 These are key files to set-up your application installation, testing and deployment. Feel free to take a look at them to get a better understanding.
 

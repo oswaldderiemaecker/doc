@@ -201,13 +201,12 @@ If you want to make your own AMI please visit the [Install or Reinstall the AWS 
 We are almost there. Let's set up CodeDeploy with the following steps:
 
 1. Sign in to the AWS Management Console and open the AWS CodeDeploy console at https://console.aws.amazon.com/codedeploy.
-2. If the Applications page does not appear, on the AWS CodeDeploy menu, choose *Applications*.
-3. Choose *Create New Application*.
-4. In the *Application Name* box, type the application's name: **mycompany_app**. (In an AWS account, an AWS CodeDeploy application name can be used only once per region. You can reuse an application name in another region though.)
-5. In the *Deployment Group* Name box, type a name that describes the deployment group: **testing**.
-6. In the *Add Instances* section, set the Tag Type to AutoScaling Group and select your autoscaling group.
-7. In the *Deployment Config* list, choose the deployment configuration: **OneAtATime**
-8. In the *Service Role ARN* box, choose an Amazon Resource Name (ARN): **arn:aws:iam::00000000000:role/CodeDeploy** 
+2. If the Applications page does not appear, on the AWS CodeDeploy menu, choose *Applications* then *Create New Application* or **Get Started Now** then select **Custom Deployment** and click on **Skip Walkthrought**.
+3. In the *Application Name* box, type the application's name: **mycompany_app**. (In an AWS account, an AWS CodeDeploy application name can be used only once per region. You can reuse an application name in another region though.)
+4. In the *Deployment Group* Name box, type a name that describes the deployment group: **testing**.
+5. In the *Add Instances* section, set the Tag Type to AutoScaling Group and select your autoscaling group.
+6. In the *Deployment Config* list, choose the deployment configuration: **OneAtATime**
+7. In the *Service Role ARN* box, choose an Amazon Resource Name (ARN): **arn:aws:iam::00000000000:role/CodeDeploy** 
 
 For more information, visit the [AWS CodeDeploy Deployments](http://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-steps.html) and [Create an Application with AWS CodeDeploy](http://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-create-application.html)
 
@@ -233,9 +232,12 @@ This application include the following files:
 * [composer.json](https://github.com/continuousdemo/aws-demo-zf-apigility-phinx/blob/master/composer.json) with our dependencies (Zend Framework 2.x / Apigility / Phinx)
 * [build.xml](https://github.com/continuousdemo/aws-demo-zf-apigility-phinx/blob/master/build.xml) with the phing targets
 * [phinx.yml.dist](https://github.com/continuousdemo/aws-demo-zf-apigility-phinx/blob/master/phinx.yml.dist) with the Phinx Database migration configuration
-* [appspec.yml](https://github.com/continuousdemo/aws-demo-zf-apigility-phinx/blob/master/appspec.yml) with the CodeDeploy configuration and hooks
 * [behat.yml](https://github.com/continuousdemo/aws-demo-zf-apigility-phinx/blob/master/behat.yml) with the Behat configuration
 * [tests/phpunit.xml](https://github.com/continuousdemo/aws-demo-zf-apigility-phinx/blob/master/tests/phpunit.xml) with the PHPUnit configuration
+* [appspec.yml](https://github.com/continuousdemo/aws-demo-zf-apigility-phinx/blob/master/appspec.yml) with the CodeDeploy configuration and hooks
+* [scripts/cleanup.sh](https://github.com/continuousdemo/aws-demo-zf-apigility-phinx/blob/master/scripts/cleanup.sh) the Appspec clean-up hook
+* [scripts/migrate.sh](https://github.com/continuousdemo/aws-demo-zf-apigility-phinx/blob/master/scripts/migrate.sh) the Appspec migrate hook
+* [scripts/restart-server.sh](https://github.com/continuousdemo/aws-demo-zf-apigility-phinx/blob/master/scripts/restart-server.sh) the Appspec restart server hook
 
 These are key files to set-up your application installation, testing and deployment. Feel free to take a look at them to get a better understanding.
 

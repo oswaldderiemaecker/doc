@@ -288,7 +288,7 @@ These are key files to set-up your application installation, testing and deploym
       * S3 Bucket: mycompany-package/testing
    3. Check the **enable deployment for successful builds** checkbox 
 
-## Deploy the app
+## Deploy the apps
 
 **Deploy the application with continuousphp**
 

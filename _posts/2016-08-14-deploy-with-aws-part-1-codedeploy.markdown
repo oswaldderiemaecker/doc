@@ -149,13 +149,13 @@ chmod 400 my-key-pair.pem
 
 ### Set-up the infrastructure
 
-First, we need to fork the sample application which include our CloudFormation template. The infrastructure is now a dependency of our application.
+First, we need to fork the sample application which includes our CloudFormation template. The infrastructure is now a dependency of our application.
 
 **Fork the Sample Application**
 
 1. Login to your GitHub account.
 2. Visit our [Sample Application](https://github.com/oswaldderiemaecker/aws-demo-zf-apigility-phinx).
-3. Click on **Fork* button at the top right
+3. Click on the **Fork* button at the top right
 4. Select where you want to fork the repository to
 5. Clone the repository
 
@@ -216,7 +216,7 @@ For more information, visit the [AWS CodeDeploy Deployments](http://docs.aws.ama
 
 Finally, let's configure continuousphp to deploy our [Sample Application](https://github.com/oswaldderiemaecker/aws-demo-zf-apigility-phinx).
 
-As we are going to configure continuousphp in testing environment, we need to create a develop branch, for which we will create a deployment pipeline.
+Because we are going to configure continuousphp in testing environment, we need to create a develop branch, for which we will create a deployment pipeline.
 
 **Preparing our Sample Application**
 

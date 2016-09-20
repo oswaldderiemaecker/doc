@@ -3,7 +3,7 @@ layout:         post
 title:          "Deploy with AWS - Part 1 : CodeDeploy"
 date:           2016-08-14 15:24:11
 author:         'oswaldderiemaecker'
-image:          '/assets/2015-03-23/pipelines-share.png'
+image:          '/assets/2016-08-14/aws-codedeploy.png'
 hasDescription: true
 categories:     tutorial
 ---

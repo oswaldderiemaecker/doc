@@ -1,7 +1,7 @@
 ---
 layout:         post
 title:          "Deploy with AWS - Part 1 : CodeDeploy"
-date:           2016-00-25 16:17:12
+date:           2016-09-25 16:17:12
 author:         'oswaldderiemaecker'
 image:          '/assets/2016-08-14/aws-codedeploy.png'
 hasDescription: true

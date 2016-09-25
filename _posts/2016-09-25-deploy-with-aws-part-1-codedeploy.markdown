@@ -7,6 +7,9 @@ image:          '/assets/2016-08-14/aws-codedeploy.png'
 hasDescription: true
 categories:     tutorial
 ---
+
+![AWS CodeDeploy](/assets/2016-08-14/aws-codedeploy.png)
+
 This tutorial explains how to configure continuousphp and AWS to deploy a PHP application with AWS CodeDeploy.
 
 <!--more-->
@@ -98,9 +101,14 @@ To start we are going to create an IAM policy to grant continuousphp the permiss
 }
 ```
 
-7\. Choose *Validate Policy* and ensure that no errors display in a red box at the top of the screen. Correct any that are reported.
-
-8\. Choose *Create Policy*.
+<ol>
+    <li value="7">
+        Choose *Validate Policy* and ensure that no errors display in a red box at the top of the screen. Correct any that are reported.
+    </li>
+    <li value="8">
+        Choose *Create Policy*.
+    </li>
+</ol>
 
 Now let's create an IAM user with an Access Key and attach the policy we've just created.  
 
@@ -131,7 +139,7 @@ For more information, visit the [AWS IAM User documentation](http://docs.aws.ama
 
 We have set-up all the IAM permissions needed for continuousphp to put its build packages into the S3 bucket, and trigger a deployment with CodeDeploy. Also CodeDeploy now has a Role that grants it access to your EC2 informations like Instance IDs, Tags and Autoscaling.
 
-Let's now create our infrastructure. For this we will use this [CloudFormation template](https://github.com/oswaldderiemaecker/continuousphp-aws-cloudformation-template).
+Let's now create our infrastructure. For this we will use this [CloudFormation template](https://github.com/https://github.com/continuousdemo/aws-demo-zf-apigility-phinx/blob/master/resources/cloudformation/webserver-autoscaling-multiaz-notification-rds-database.template).
 
 ### Creating the EC2 Key Pair
 
@@ -154,7 +162,7 @@ First, we need to fork the sample application which includes our CloudFormation 
 **Fork the Sample Application**
 
 1. Login to your GitHub account.
-2. Visit our [Sample Application](https://github.com/oswaldderiemaecker/aws-demo-zf-apigility-phinx).
+2. Visit our [Sample Application](https://github.com/continuousdemo/aws-demo-zf-apigility-phinx).
 3. Click on the **Fork* button at the top right
 4. Select where you want to fork the repository to
 5. Clone the repository
@@ -169,7 +177,7 @@ Let's now create our Infrastructure by creating a CloudFormation Stack.
   2. Click *Create New Stack* in the CloudFormation Stacks main window. This option is visible only if you have no running stacks.
 3. On the *Select Template* page
   1. Choose a template
-  2. Select *Upload a template to Amazon S3* and select the AWS CloudFormation template on your local computer. Choose the [CloudFormation template](https://github.com/oswaldderiemaecker/continuousphp-aws-cloudformation-template) that you just forked.
+  2. Select *Upload a template to Amazon S3* and select the AWS CloudFormation template on your local computer. Choose the [CloudFormation template](https://github.com/continuousdemo/aws-demo-zf-apigility-phinx/blob/master/resources/cloudformation/webserver-autoscaling-multiaz-notification-rds-database.template) that you just forked.
 4. Click Next to accept your settings and proceed by specifying the stack name and parameters.
 
 **Specify the stack parameter values**
@@ -214,7 +222,7 @@ For more information, visit the [AWS CodeDeploy Deployments](http://docs.aws.ama
 
 ### Prepare the Sample Application
 
-Finally, let's configure continuousphp to deploy our [Sample Application](https://github.com/oswaldderiemaecker/aws-demo-zf-apigility-phinx).
+Finally, let's configure continuousphp to deploy our [Sample Application](https://github.com/continuousdemo/aws-demo-zf-apigility-phinx).
 
 Because we are going to configure continuousphp in testing environment, we need to create a develop branch, for which we will create a deployment pipeline.
 

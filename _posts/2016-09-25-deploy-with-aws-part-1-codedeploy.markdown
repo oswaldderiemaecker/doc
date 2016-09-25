@@ -139,7 +139,7 @@ For more information, visit the [AWS IAM User documentation](http://docs.aws.ama
 
 We have set-up all the IAM permissions needed for continuousphp to put its build packages into the S3 bucket, and trigger a deployment with CodeDeploy. Also CodeDeploy now has a Role that grants it access to your EC2 informations like Instance IDs, Tags and Autoscaling.
 
-Let's now create our infrastructure. For this we will use this [CloudFormation template](https://github.com/https://github.com/continuousdemo/aws-demo-zf-apigility-phinx/blob/master/resources/cloudformation/webserver-autoscaling-multiaz-notification-rds-database.template).
+Let's now create our infrastructure. For this we will use this [CloudFormation template](https://github.com/continuousdemo/aws-demo-zf-apigility-phinx/blob/master/resources/cloudformation/webserver-autoscaling-multiaz-notification-rds-database.template).
 
 ### Creating the EC2 Key Pair
 

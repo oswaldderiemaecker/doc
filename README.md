@@ -15,3 +15,9 @@ This is the official documentation of the continuousphp platform.
 In order to have a better experience, the stylesheets from the webapp is loaded.
 However, as the javascript is not loaded, all features are not available (i.e. menu styles are not available).
 Thank you for your comprehension.
+
+## API documentation
+
+The API is documented using [API Blueprint](https://apiblueprint.org/) description language.
+If you want to contribute, just edit the [description file](blob/master/apiary.apib)
+and propose a Pull Request.

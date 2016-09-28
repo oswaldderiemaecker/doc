@@ -1,0 +1,1801 @@
+FORMAT: 1A
+HOST: https://api.continuousphp.com
+
+# continuousphp API documentation
+This is the documentation for the RESTful API of continuousphp. You can use it to build your own continuousphp WebApp or even MobileApp.
+
+# Group Sessions
+Create, get or delete **sessions**.
+
+## Sessions Collection [/api/sessions]
+The Sessions collection.
+
+### Create a Session [POST]
++ Attributes
+    + provider: `git-hub` (string, required) - Provider id (git-hub, bitbucket, gitlab...)
+    + `authorization-code`: xxxxxxx (string, required) - github authorization code
+
++ Request (application/hal+json)
+
++ Response 201 (application/hal+json)
+
+        {
+          "id":"0f023e247d2848a9ae4034e224908c0f",
+          "accessToken":"0f023e247d2848a9ae4034e224908c0f",
+          "created":"2016-09-12T15:29:00+02:00",
+          "_embedded":{
+            "user":{
+              "userId":23821,
+              "username":"fdewinne",
+              "firstName":"Frederic",
+              "lastName":"Dewinne",
+              "email":"frederic@example.com",
+              "companyName":"Continuous S.A.",
+              "created":"2014-07-27T15:00:50+02:00",
+              "website":null,
+              "phone":null,
+              "mobile":null,
+              "numberOfBuilds":0,
+              "averageBuildDuration":0,
+              "vat":null,
+              "billingAddressStreet":null,
+              "billingAddressCity":null,
+              "billingAddressState":null,
+              "billingAddressZip":null,
+              "billingAddressCountry":null,
+              "billingAddressFax":null,
+              "currencyCode":null,
+              "isSubscribedToNewsletter":1,
+              "_embedded":{
+                "accountConnections":[{
+                  "accountConnectionId":2,
+                  "accountId":"fdewinne",
+                  "validity":null,
+                  "_embedded":{
+                    "provider":{
+                      "providerId":1,
+                      "uniqueIdentifier":"git-hub",
+                      "url":"https:\/\/api.github.com",
+                      "baseUrl":"https:\/\/github.com",
+                      "name":"GitHub",
+                      "type":"git-hub",
+                      "_links":{
+                        "self":{
+                          "href":"https:\/\/api.continuousphp.com\/api\/providers\/1"
+                        }
+                      }
+                    }
+                  }
+                }]
+              },
+              "_links":{
+                "self":{
+                  "href":"https:\/\/api.continuousphp.com\/api\/users\/23821"
+                }
+              }
+            }
+          },
+          "_links":{
+            "self":{
+              "href":"https:\/\/api.continuousphp.com\/api\/sessions\/0f023e247d2848a9ae4034e224908c0f"
+            }
+          }
+        }
+
+## Session [/api/sessions/{id}]
+A single Session resource with all its details.
+
++ Parameters
+    + id: `06db3ca50f3046c899745d5216b8ac86` (string, required) - `id` of the Session.
+
+### Retrieve a Session [GET]
++ Request
+    + Headers
+    
+            Authorization: Bearer 0f023e247d2848a9ae4034e224908c0f
++ Response 200 (application/hal+json)
+
+        {
+            "id": "0f023e24-7d28-48a9-ae40-34e224908c0f",
+            "created": {
+                "date": "2014-03-08 14:30:36",
+                "timezone_type": 3,
+                "timezone": "Europe\/Paris"
+            },
+            "_embedded": {
+                "user": {
+                    "id": 457,
+                    "status": "active",
+                    "username": "user1",
+                    "email": "user1@domain.com",
+                    "_links": {
+                        "self": {
+                            "href":"http:\/\/localhost\/api\/users\/457"
+                        }
+                    }
+                }
+            },
+            "_links": {
+                "self": {
+                    "href": "http:\/\/localhost\/api\/sessions\/0f023e24-7d28-48a9-ae40-34e224908c0f"
+                }
+            }
+        }
+
+### Delete a Session [DELETE]
++ Response 204
+
+# Group Account Connections
+Update **account connections**.
+
+## Account Connection [/api/users/{userId}/account-connections/{accountConnectionId}]
+A single Account Connection resource with all its details.
+
++ Parameters
+    + userId (required, numeric, `469`) ... `id` of the User.
+    + accountConnectionId (required, numeric, `658`) ... `id` of the Account Connection.
+
+# Group Users
+Create, get or update **users**.
+
+## Users Collection [/api/users{?sort,sort_order,filter}]
+The Users collection.
+
+### Get all users [GET]
++ Parameters
+    + sort (optional, string, `email`) ... May be one of username, name, email, company, url.
+    + sort_order (optional, string, `desc`) ... May be "asc" or "desc". Ignored, if the sort parameter isn't specified.
+    + filter (optional, string, `my-username`) ... Filters the list by applying the parameter to the fields username, name, email, company, url.
+
++ Response 200 (application/hal+json)
+
+        {
+            "_links": {
+                "self": {
+                    "href": "http://localhost/api/users?page=1"
+                },
+                "first": {
+                    "href": "http://localhost/api/users"
+                },
+                "last": {
+                    "href": "http://localhost/api/users?page=1"
+                }
+            },
+            "_embedded": {
+                "users": [
+                    {
+                        "id": 162,
+                        "status": "active",
+                        "username": "user1",
+                        "email": "user1@email.com",
+                        "name": null,
+                        "company": null,
+                        "location": null,
+                        "created": null,
+                        "url": null,
+                        "averageBuildDuration": 183,
+                        "numberOfBuilds": 359,
+                        "_embedded": {
+                            "accountConnections": [
+                                {
+                                    "accountConnectionId": 2,
+                                    "token": "zafzbflzazalfbzafzalkbzjzafvbzafkvazfza",
+                                    "accountId": "user1",
+                                    "activated": null,
+                                    "nonce": null,
+                                    "validity": null,
+                                    "_embedded": {
+                                        "provider": {
+                                            "providerId": 1,
+                                            "uniqueIdentifier": "git-hub",
+                                            "url": "https://api.github.com",
+                                            "baseUrl": "https://github.com",
+                                            "name": "GitHub",
+                                            "type": "git-hub",
+                                            "_links": {
+                                                "self": {
+                                                    "href": "http://locahost/api/providers/1"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                        "_links": {
+                            "self": {
+                                "href": "http://localhost/api/users/162"
+                            }
+                        }
+                    },
+                    {
+                        "id": 165,
+                        "status": "active",
+                        "username": "user2",
+                        "email": "user2@email.com",
+                        "name": null,
+                        "company": null,
+                        "location": null,
+                        "created": "2015-04-08T11:04:54+02:00",
+                        "url": null,
+                        "averageBuildDuration": 183,
+                        "numberOfBuilds": 359,
+                        "_embedded": {
+                            "accountConnections": [
+                                {
+                                    "accountConnectionId": 1,
+                                    "token": "aevegvegvez64g5ze6gezgezg651va6e5v6ag1",
+                                    "accountId": "user2",
+                                    "activated": null,
+                                    "nonce": null,
+                                    "validity": null,
+                                    "_embedded": {
+                                        "provider": {
+                                            "providerId": 1,
+                                            "uniqueIdentifier": "git-hub",
+                                            "url": "https://api.github.com",
+                                            "baseUrl": "https://github.com",
+                                            "name": "GitHub",
+                                            "type": "git-hub",
+                                            "_links": {
+                                                "self": {
+                                                    "href": "http://locahost/api/providers/1"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                        "_links": {
+                            "self": {
+                                "href": "http://localhost/api/users/165"
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+
+## User [/api/users/{id}]
+A single User resource with all its details.
+
++ Parameters
+    + id (required, numeric, `469`) ... `id` of the User.
+
+### Retrieve a User [GET]
++ Response 200 (application/hal+json)
+
+        {
+            "id": 469,
+            "status": "new",
+            "username": "user1",
+            "email": "myemail@domain.com",
+            "name": null,
+            "company": null,
+            "location": null,
+            "created": "2015-04-08T11:04:54+02:00",
+            "url": null,
+            "averageBuildDuration": 183,
+            "numberOfBuilds": 359,
+            "_embedded": {
+                "accountConnections": [
+                    {
+                        "accountConnectionId": 1,
+                        "token": "aevegvegvez64g5ze6gezgezg651va6e5v6ag1",
+                        "accountId": "user2",
+                        "activated": null,
+                        "nonce": null,
+                        "validity": null,
+                        "_embedded": {
+                            "provider": {
+                                "providerId": 1,
+                                "uniqueIdentifier": "git-hub",
+                                "url": "https://api.github.com",
+                                "baseUrl": "https://github.com",
+                                "name": "GitHub",
+                                "type": "git-hub",
+                                "_links": {
+                                    "self": {
+                                        "href": "http://locahost/api/providers/1"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+            "_links": {
+                "self": {
+                    "href": "http:\/\/localhost\/api\/users\/469"
+                }
+            }
+        }
+
+### Update a User [PUT]
++ Request (application/x-www-form-urlencoded)
+
+        username=user1
+        email=myemail@domain.com
+        
++ Response 200 (application/hal+json)
+
+        {
+            "id": 469,
+            "status": "new",
+            "username": "user1",
+            "email": "myemail@domain.com",
+            "name": null,
+            "company": null,
+            "location": null,
+            "created": "2015-04-08T11:04:54+02:00",
+            "url": null,
+            "averageBuildDuration": 183,
+            "numberOfBuilds": 359,
+            "_embedded": {
+                "accountConnections": [
+                    {
+                        "accountConnectionId": 1,
+                        "token": "aevegvegvez64g5ze6gezgezg651va6e5v6ag1",
+                        "accountId": "user2",
+                        "activated": null,
+                        "nonce": null,
+                        "validity": null,
+                        "_embedded": {
+                            "provider": {
+                                "providerId": 1,
+                                "uniqueIdentifier": "git-hub",
+                                "url": "https://api.github.com",
+                                "baseUrl": "https://github.com",
+                                "name": "GitHub",
+                                "type": "git-hub",
+                                "_links": {
+                                    "self": {
+                                        "href": "http://locahost/api/providers/1"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+            "_links": {
+                "self": {
+                    "href": "http:\/\/localhost\/api\/users\/469"
+                }
+            }
+        }
+
+# Group Terms & Conditions
+Retrieve the **terms & conditions**.
+
+## Terms & Conditions Collection [/api/terms-and-conditions{?only_latest,accepted}]
+The Terms & Conditions collection.
+
++ Parameters
+    + only_latest (optional, numeric, `1`) ... When enabled, only the latest terms & conditions are returned.
+    + accepted (optional, numeric, `0`) ... Return only accepted or not accepted terms & conditions. Possible values: 0 or 1.
+
+### Get the list of terms & conditions [GET]
++ Response 200 (application/hal+json)
+
+        {
+            "_links": {
+                "self": {
+                    "href": "http:\/\/localhost\/api\/terms-and-conditions?page=1"
+                },
+                "first": {
+                    "href": "http:\/\/localhost\/api\/terms-and-conditions"},
+                    "last": {
+                        "href": "http:\/\/localhost\/api\/terms-and-conditions?page=1"
+                    }
+                },
+                "_embedded": {
+                    "terms-and-conditions": 
+                        [
+                            {
+                                "termsAndConditionsId": 275,
+                                "text": "Lorum Ipsum dolor sit amet",
+                                "accepted": "1394314268",
+                                "_links": {
+                                    "self": {
+                                        "href": "http:\/\/localhost\/api\/terms-and-conditions\/275"
+                                    }
+                                }
+                            },
+                            {
+                                "termsAndConditionsId": 276,
+                                "text": "Lorum Ipsum dolor sit amet",
+                                "accepted": null,
+                                "_links": {
+                                    "self": {
+                                        "href": "http:\/\/localhost\/api\/terms-and-conditions\/276"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+
+## Terms & Conditions [/api/terms-and-conditions/{id}]
+One terms & conditions resource with all its details.
+
+### Retrieve Terms & Conditions [GET]
++ Response 200 (application/hal+json)
+
+        {
+            "termsAndConditionsId": 275,
+            "text": "Lorum Ipsum dolor sit amet",
+            "accepted": "1394314268",
+            "_links": {
+                "self": {
+                    "href": "http:\/\/localhost\/api\/terms-and-conditions\/275"
+                }
+            }
+        }
+
+# Group Terms & Conditions Acceptance
+Accept the **terms & conditions**.
+
+## Terms & Conditions Acceptance Collection [/api/terms-and-conditions/{terms_and_conditions_id}/acceptances]
+The Terms & Conditions Acceptance collection.
+
++ Parameters
+    + terms_and_conditions_id (required, numeric, `1`) ... The terms & conditions to accept.
+
+### Accept the terms & conditions [POST]
+
++ Response 201 (application/hal+json)
+
+        {
+            "termsAndConditionsId": 161,
+            "accepted": {
+                "date": "2014-03-08 22:54:52",
+                "timezone_type": 3,
+                "timezone": "Europe\/Paris"
+            },
+            "_embedded": {
+                "user": {
+                    "id": 476,
+                    "status": "active",
+                    "username": "user1",
+                    "email": "user1@domain.com",
+                    "_links": {
+                        "self" : {
+                            "href": "http:\/\/localhost\/api\/users\/476"
+                        }
+                    }
+                },
+                "termsAndConditions": {
+                    "termsAndConditionsId": 281,
+                    "text": "bla bla",
+                    "accepted": "1394315692",
+                    "_links": {
+                        "self":{
+                            "href":"http:\/\/localhost\/api\/terms-and-conditions\/281"
+                        }
+                    }
+                }
+            },
+            "_links": {
+                "self": {
+                    "href": "http:\/\/localhost\/api\/terms-and-conditions\/281\/acceptances\/161"
+                }
+            }
+        }
+
+# Group Repositories
+Retrieve the **repositories**.
+
+## Repositories Collection [/api/repositories{?include_configured_repos}]
+The Repositories collection.
+
++ Parameters
+    + include_configured_repos (optional, numeric, `1`) ... When enabled, only the not yet configured repositories are returned.
+
+### Get the list of repositories [GET]
++ Response 200 (application/hal+json)
+
+        {
+            "_links": {
+                "self": {
+                    "href": "http:\/\/localhost\/api\/repositories?page=1"
+                },
+                "first": {
+                    "href": "http:\/\/localhost\/api\/repositories"
+                },
+                "last": {
+                    "href": "http:\/\/localhost\/api\/repositories?page=1"
+                }
+            },
+            "_embedded": {
+                "repositories":
+                    [
+                        {
+                            "repositoryId": "git-hub\/user1\/test-repository1",
+                            "name": "test-repository1",
+                            "numericalId":14029678,
+                            "htmlUrl": "https:\/\/github.com\/user1\/test-repository1",
+                            "phingTargets":[],
+                            "composerPackages":[],
+                            "_links": {
+                                "self": {
+                                    "href": "http:\/\/localhost\/api\/repositories\/git-hub%2Fuser1%2Ftest-repository1"
+                                }
+                            }
+                        },
+                        {
+                            "repositoryId": "git-hub\/user1\/test-repository2",
+                            "name": "test-repository2",
+                            "numericalId":14614599,
+                            "htmlUrl": "https:\/\/github.com\/user1\/test-repository2",
+                            "phingTargets":[],
+                            "composerPackages":[],
+                            "_links": {
+                                "self": {
+                                    "href": "http:\/\/localhost\/api\/repositories\/git-hub%2user1%2Ftest-repository2",
+                                }
+                            }
+                        }
+                    ]
+            }
+        }
+
+## Repositories [/api/repositories/{id}]
+One repository with all its details.
+
++ Parameters
+    + id (required, string, `git-hub%2Fuser1%2Frepo-name`) ... An URL-encoded string, composed of the provider key (e.g. 'git-hub' or 'your-git-server') and the repository URI.
+
+### Retrieve Repository [GET]
++ Response 200 (application/hal+json)
+
+        {
+            "repositoryId": "git-hub\/user1\/test-repository1",
+            "name": "test-repository1",
+            "numericalId":14029678,
+            "htmlUrl": "https:\/\/github.com\/user1\/test-repository1",
+            "phingTargets":[],
+            "composerPackages":[],
+            "_links": {
+                "self": {
+                    "href": "http:\/\/localhost\/api\/repositories\/git-hub%2Fuser1%2Ftest-repository1"
+                }
+            }
+        }
+
+# Group Repository References
+Retrieve the **repository references**.
+
+## Repository References Collection [/api/repositories/{repository_id}/references]
+The Repository References collection.
+
++ Parameters
+    + repository_id (required, string, `git-hub%2Fuser1%2Frepo-name`) ... An URL-encoded string, composed of the provider key (e.g. 'git-hub' or 'your-git-server') and the repository URI.
+
+### Get the list of repository references for a given repository [GET]
++ Response 200 (application/hal+json)
+
+        {
+            "_links": {
+                "self": {
+                    "href": "http:\/\/localhost\/api\/repositories\/git-hub\/user1\/test-repository1\/references?page=1"
+                },
+                "first": {
+                    "href": "http:\/\/localhost\/api\/repositories\/git-hub%2Fuser1%2Ftest-repository1\/references"
+                },
+                "last": {
+                    "href": "http:\/\/localhost\/api\/repositories\/git-hub\/user1\/test-repository1\/references?page=1"
+                }
+            },
+            "_embedded": {
+                "references":
+                    [
+                        {
+                            "name": "refs\/heads\/master",
+                            "url": "https:\/\/api.github.com\/repos\/user1\/test-repository1\/git\/refs\/heads\/master",
+                            "_embedded": {
+                                "repository": {
+                                    "repositoryId": "git-hub\/user1\/test-repository1",
+                                    "name": "user1\/test-repository1",
+                                    "numericalId":14029675,
+                                    "htmlUrl": "https:\/\/github.com\/user1\/test-repository1",
+                                    "phingTargets":
+                                        [
+                                            "help",
+                                            "clean",
+                                            "prepare"
+                                        ],
+                                    "composerPackages": {
+                                        "php": "\u003E=5.4",
+                                        "zendframework\/zendframework": "2.2.5"
+                                    },
+                                    "_links": {
+                                        "self": {
+                                            "href": "http:\/\/localhost\/api\/repositories\/git-hub%2Fuser1%2Ftest-repository1"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "name": "refs\/tags\/v1.0",
+                            "url": "https:\/\/api.github.com\/repos\/user1\/test-repository1\/git\/refs\/tags\/v1.0",
+                            "_embedded": {
+                                "repository": {
+                                    "repositoryId": "git-hub\/user1\/test-repository1",
+                                    "name": "user1\/test-repository1",
+                                    "numericalId":14029675,
+                                    "htmlUrl": "https:\/\/github.com\/user1\/test-repository1",
+                                    "phingTargets":
+                                        [
+                                            "help",
+                                            "clean",
+                                            "prepare"
+                                        ],
+                                    "composerPackages": {
+                                        "php": "\u003E=5.4",
+                                        "zendframework\/zendframework": "2.2.5"
+                                    },
+                                    "_links": {
+                                        "self": {
+                                            "href": "http:\/\/localhost\/api\/repositories\/git-hub%2Fuser1%2Ftest-repository1"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ]
+            }
+        }
+
+# Group Projects
+Create and retrieve **projects**.
+
+## Projects Collection [/api/projects]
+The Projects collection.
+
+### Create a Project [POST]
++ Request (application/x-www-form-urlencoded)
+
+        provider=git-hub
+        name=%2Fuser1%2Ftest-repository1
+        repositoryId=14029679
+        url=user1%2Ftest-repository1
+        description=Some%20description
+
++ Response 201 (application/hal+json)
+
+        {
+            "projectId": 1,
+            "repositoryId": "14029675",
+            "provider": "git-hub",
+            "name": "\/user1\/test-repository1",
+            "status": null,
+            "description": "Some description",
+            "url": "user1\/test-repository1",
+            "created": "2013-03-01T16:15:09+01:00",
+            "lastBuild": {
+                "buildId": 2,
+                "projectId": 1,
+                "launchedBy": null,
+                "created": {
+                    "date": "2014-03-09 23:16:43",
+                    "timezone_type": 3,
+                    "timezone": "Europe\/Paris"
+                },
+                "state": "finished",
+                "result": null,
+                "phingTasks":
+                    [
+                        "package",
+                        "deploy"
+                    ],
+                "_links": {
+                    "self": {
+                        "href":"http:\/\/localhost\/api\/builds\/2"
+                    }
+                }
+            },
+            "_embedded": {
+                "owner": {
+                    "id": 480,
+                    "status": "active",
+                    "username": "myusername",
+                    "email": "myaddress@domain.com",
+                    "_links": {
+                        "self": {
+                            "href": "http:\/\/localhost\/api\/users\/480"
+                        }
+                    }
+                }
+            },
+            "_links": {
+                "self": {
+                    "href": "http:\/\/localhost\/api\/projects\/1"
+                }
+            }
+        }
+
+### Get the Project list [GET]
++ Response 200 (application/hal+json)
+
+        {
+            "_links": {
+                "self": {
+                    "href": "http:\/\/localhost\/api\/projects?page=1"
+                },
+                "first": {
+                    "href": "http:\/\/localhost\/api\/projects"
+                },
+                "last": {
+                    "href": "http:\/\/localhost\/api\/projects?page=1"
+                }
+            },
+            "_embedded": {
+                "projects":
+                    [
+                        {
+                            "projectId": 1,
+                            "repositoryId": "14029675",
+                            "provider": "git-hub",
+                            "name": "\/user1\/test-repository1",
+                            "status": null,
+                            "description": "Some description",
+                            "url": "user1\/test-repository1",
+                            "created": "2013-03-01T16:15:09+01:00",
+                            "lastBuild": {
+                                "buildId": 2,
+                                "projectId": 1,
+                                "launchedBy": null,
+                                "created": {
+                                    "date": "2014-03-09 23:16:43",
+                                    "timezone_type": 3,
+                                    "timezone": "Europe\/Paris"
+                                },
+                                "state": "finished",
+                                "result": null,
+                                "phingTasks":
+                                    [
+                                        "package",
+                                        "deploy"
+                                    ],
+                                "_links": {
+                                    "self": {
+                                        "href":"http:\/\/localhost\/api\/builds\/2"
+                                    }
+                                }
+                            },
+                            "_embedded": {
+                                "owner": {
+                                    "id": 480,
+                                    "status": "active",
+                                    "username": "myusername",
+                                    "email": "myaddress@domain.com",
+                                    "_links": {
+                                        "self": {
+                                            "href": "http:\/\/localhost\/api\/users\/480"
+                                        }
+                                    }
+                                }
+                            },
+                            "_links": {
+                                "self": {
+                                    "href": "http:\/\/localhost\/api\/projects\/1"
+                                }
+                            }
+                        },
+                        {
+                            "projectId": 2,
+                            "repositoryId": "14029676",
+                            "provider": "git-hub",
+                            "name": "\/user1\/test-repository2",
+                            "status": null,
+                            "description": "Some description",
+                            "url": "user1\/test-repository2",
+                            "created": "2013-03-01T16:15:09+01:00",
+                            "lastBuild": {
+                                "buildId": 2,
+                                "projectId": 2,
+                                "launchedBy": null,
+                                "created": {
+                                    "date": "2014-03-09 23:16:43",
+                                    "timezone_type": 3,
+                                    "timezone": "Europe\/Paris"
+                                },
+                                "state": "finished",
+                                "result": null,
+                                "phingTasks":
+                                    [
+                                        "package",
+                                        "deploy"
+                                    ],
+                                "_links": {
+                                    "self": {
+                                        "href":"http:\/\/localhost\/api\/builds\/2"
+                                    }
+                                }
+                            },
+                            "_embedded": {
+                                "owner": {
+                                    "id": 480,
+                                    "status": "active",
+                                    "username": "myusername",
+                                    "email": "myaddress@domain.com",
+                                    "_links": {
+                                        "self": {
+                                            "href": "http:\/\/localhost\/api\/users\/480"
+                                        }
+                                    }
+                                }
+                            },
+                            "_links": {
+                                "self": {
+                                    "href": "http:\/\/localhost\/api\/projects\/1"
+                                }
+                            }
+                        }
+                    ]
+            }
+        }
+
+## Project [/api/projects/{id}]
+A single Project resource with all its details.
+
++ Parameters
+    + id (required, string, `git-hub%2Fuser1%2Frepo-name`) ... An URL-encoded string, composed of the provider key (e.g. 'git-hub' or 'your-git-server') and the repository URI.
+
+### Retrieve a Project [GET]
++ Response 200 (application/hal+json)
+
+        {
+            "projectId": 1,
+            "repositoryId": "14029675",
+            "provider": "git-hub",
+            "name": "\/user1\/test-repository1",
+            "status": null,
+            "description": "Some description",
+            "url": "user1\/test-repository1",
+            "created": "2013-03-01T16:15:09+01:00",
+            "lastBuild": {
+                "buildId": 2,
+                "projectId": 1,
+                "launchedBy": null,
+                "created": {
+                    "date": "2014-03-09 23:16:43",
+                    "timezone_type": 3,
+                    "timezone": "Europe\/Paris"
+                },
+                "state": "finished",
+                "result": null,
+                "phingTasks":
+                    [
+                        "package",
+                        "deploy"
+                    ],
+                "_links": {
+                    "self": {
+                        "href":"http:\/\/localhost\/api\/builds\/2"
+                    }
+                }
+            },
+            "_embedded": {
+                "owner": {
+                    "id": 480,
+                    "status": "active",
+                    "username": "myusername",
+                    "email": "myaddress@domain.com",
+                    "_links": {
+                        "self": {
+                            "href": "http:\/\/localhost\/api\/users\/480"
+                        }
+                    }
+                }
+            },
+            "_links": {
+                "self": {
+                    "href": "http:\/\/localhost\/api\/projects\/1"
+                }
+            }
+        }
+
+# Group Project Settings
+Create and retrieve **project settings**.
+
+## Project Settings Collection [/projects/{project_id}/settings]
+The Project Settings collection.
+
++ Parameters
+    + project_id (required, string, `git-hub%2Fuser1%2Frepo-name`) ... An URL-encoded string, composed of the provider key (e.g. 'git-hub' or 'your-git-server') and the repository URI.
+
+### Get the Settings list of a given Project [GET]
++ Response 200 (application/hal+json)
+
+        {
+            "_links": {
+                "self": {
+                    "href":"http:\/\/localhost\/api\/project\/git-hub\/user1\/test-repository1\/settings?page=1"
+                },
+                "first": {
+                    "href":"http:\/\/localhost\/api\/project\/git-hub\/user1\/test-repository1\/settings"
+                },
+                "last": {
+                    "href":"http:\/\/localhost\/api\/project\/git-hub\/user1\/test-repository1\/settings?page=1"
+                }
+            },
+            "_embedded": {
+                "settings":
+                    [
+                        {
+                            "settingId": 20,
+                            "ref": "develop",
+                            "preparePhingTargets":
+                                [
+                                    "clean-up",
+                                    "setup-env",
+                                    "doctrine-proxies"
+                                ],
+                            "preDeployPhingTargets":
+                                [
+                                    "clean-up",
+                                    "setup-env",
+                                    "doctrine-proxies",
+                                    "test"
+                                ],
+                            "preparePhingVariables": [],
+                            "preDeployPhingVariables":[],
+                            "phpVersions":
+                                [
+                                    "5.3.3",
+                                    "5.3.max",
+                                    "5.4.max",
+                                    "5.5.max"
+                                ],
+                            "enabledTests":
+                                [
+                                    {
+                                        "type": "phpunit",
+                                        "paths":
+                                            [
+                                                "\/path\/one",
+                                                "\/path\/two"
+                                            ],
+                                        "blocking": 1,
+                                        "phingTargets":
+                                            [
+                                                "reset-db",
+                                                "import-fixtures"
+                                            ],
+                                        "phingVariables":
+                                            {
+                                                "env": "testing",
+                                                "hostname": "site.com"
+                                            }
+                                    },
+                                    {
+                                        "type": "atoum",
+                                        "paths":
+                                            [
+                                                "\/path\/three",
+                                                "\/path\/four"
+                                            ],
+                                        "blocking": 0,
+                                        "phingTargets":
+                                            [
+                                                "reset-db",
+                                                "import-fixtures"
+                                            ],
+                                        "phingVariables":
+                                            {
+                                                "env": "staging",
+                                                "hostname": "site2.com"
+                                            }
+                                    }
+                                ],
+                            "deployment": {
+                                "type": "tarball",
+                                "destinations":
+                                    [
+                                        "http:\/\/first-deployment-dest.com",
+                                        "http:\/\/second-deployment-dest.com"
+                                    ]
+                            },
+                            "deployOnSuccess": "1",
+                            "composerPath": "/path/to/composer.json",
+                            "phingPath": "/path/to/build.xml",
+                            "_links": {
+                                "self": {
+                                    "href": "http:\/\/localhost\/api\/project\/git-hub%2Fcontinuousphptest%2Fcphp-test1\/settings\/20"
+                                }
+                            }
+                        },
+                        {
+                            "settingId": 20,
+                            "ref": "develop",
+                            "preparePhingTargets":
+                                [
+                                    "clean-up",
+                                    "setup-env",
+                                    "doctrine-proxies"
+                                ],
+                            "preDeployPhingTargets":
+                                [
+                                    "clean-up",
+                                    "setup-env",
+                                    "doctrine-proxies",
+                                    "test"
+                                ],
+                            "preparePhingVariables": [],
+                            "preDeployPhingVariables":[],
+                            "phpVersions":
+                                [
+                                    "5.3.3",
+                                    "5.3.max",
+                                    "5.4.max",
+                                    "5.5.max"
+                                ],
+                            "enabledTests":
+                                [
+                                    {
+                                        "type": "phpunit",
+                                        "paths":
+                                            [
+                                                "\/path\/one",
+                                                "\/path\/two"
+                                            ],
+                                        "blocking": 1,
+                                        "phingTargets":
+                                            [
+                                                "reset-db",
+                                                "import-fixtures"
+                                            ],
+                                        "phingVariables":
+                                            {
+                                                "env": "testing",
+                                                "hostname": "site.com"
+                                            }
+                                    },
+                                    {
+                                        "type": "atoum",
+                                        "paths":
+                                            [
+                                                "\/path\/three",
+                                                "\/path\/four"
+                                            ],
+                                        "blocking": 0,
+                                        "phingTargets":
+                                            [
+                                                "reset-db",
+                                                "import-fixtures"
+                                            ],
+                                        "phingVariables":
+                                            {
+                                                "env": "staging",
+                                                "hostname": "site2.com"
+                                            }
+                                    }
+                                ],
+                            "deployment": {
+                                "type": "tarball",
+                                "destinations":
+                                    [
+                                        "http:\/\/first-deployment-dest.com",
+                                        "http:\/\/second-deployment-dest.com"
+                                    ]
+                            },
+                            "deployOnSuccess": "1",
+                            "composerPath": "/path/to/composer.json",
+                            "phingPath": "/path/to/build.xml",
+                            "_links": {
+                                "self": {
+                                    "href": "http:\/\/localhost\/api\/project\/git-hub%2Fcontinuousphptest%2Fcphp-test1\/settings\/20"
+                                }
+                            }
+                        }
+                    ]
+            }
+        }
+
+## Project Settings [/projects/{project_id}/settings/{ref}]
+A single Project Setting resource with all its details.
+
++ Parameters
+    + project_id (required, string, `git-hub%2Fuser1%2Frepo-name`) ... An URL-encoded string, composed of the provider key (e.g. 'git-hub' or 'your-git-server') and the repository URI.
+    + ref (required, string, `develop`) ... `ref` of the Project Setting.
+
+### Retrieve a Project Setting [GET]
++ Response 200 (application/hal+json)
+
+        {
+            "settingId": 1,
+            "ref": "develop",
+            "preparePhingTargets":
+                [
+                    "clean-up",
+                    "setup-env"
+                ],
+            "preDeployPhingTargets":
+                [
+                    "clean-up",
+                    "setup-env"
+                ],
+            "preparePhingVariables": [],
+            "preDeployPhingVariables":[],
+            "phpVersions":
+                [
+                    "5.3.3",
+                    "5.3.max",
+                    "5.4.max"
+                ],
+            "enabledTests": [
+                {
+                    "type": "phpunit",
+                    "paths":
+                        [
+                            "\/path\/one",
+                            "\/path\/two"
+                        ],
+                    "blocking": 1,
+                    "phingTargets":
+                        [
+                            "reset-db",
+                            "import-fixtures"
+                        ],
+                    "phingVariables":
+                        {
+                            "env": "testing",
+                            "hostname": "site.com"
+                        }
+                },
+                {
+                    "type": "atoum",
+                    "paths":
+                        [
+                            "\/path\/three",
+                            "\/path\/four"
+                        ],
+                    "blocking": 0,
+                    "phingTargets":
+                        [
+                            "reset-db",
+                            "import-fixtures"
+                        ],
+                    "phingVariables":
+                        {
+                            "env": "staging",
+                            "hostname": "site2.com"
+                        }
+                }
+            ],
+            "deployOnSuccess": "1",
+            "composerPath": "/path/to/composer.json",
+            "phingPath": "/path/to/build.xml",
+            "_links": {
+                "self": {
+                    "href":"http:\/\/localhost\/api\/project\/git-hub%2Fuser1%2Frepo-name\/settings\/1"
+                }
+            }
+        }
+
++ Parameters
+    + project_id (required, string, `git-hub%2Fuser1%2Frepo-name`) ... An URL-encoded string, composed of the provider key (e.g. 'git-hub' or 'your-git-server') and the repository URI.
+    + ref (required, string, `develop`) ... `ref` of the Project Setting.
+
+### Create or Update Project Settings [PUT]
++ Request (application/x-www-form-urlencoded)
+
+        preparePhingTargets[0]=clean-up
+        preparePhingTargets[1]=setup-env
+        preDeployPhingTargets[0]=clean-up
+        preDeployPhingTargets[1]=setup-env
+        preparePhingVariables[env]=testing
+        preparePhingVariables[hostname]=site.com
+        preDeployPhingVariables[env]=production
+        preDeployPhingVariables[hostname]=site2.com
+        phpVersions[0]=5.3.3
+        phpVersions[1]=5.3.max
+        phpVersions[2]=5.4.max
+        enabledTests[0][type]=phpunit
+        enabledTests[0][blocking]=1
+        enabledTests[0][paths][0]=/path/one
+        enabledTests[0][paths][1]=/path/two
+        enabledTests[0][phingTargets][0]=reset-db
+        enabledTests[0][phingTargets][1]=import-fixtures
+        enabledTests[0][phingVariables][env]=testing
+        enabledTests[0][phingVariables][hostname]=site.com
+        enabledTests[1][type]=atoum
+        enabledTests[1][blocking]=0
+        enabledTests[1][paths][0]=/path/three
+        enabledTests[1][paths][1]=/path/four
+        enabledTests[1][phingTargets][0]=reset-db
+        enabledTests[1][phingTargets][1]=import-fixtures
+        enabledTests[1][phingVariables][env]=staging
+        enabledTests[1][phingVariables][hostname]=site2.com
+        deployment[type]=tarball
+        deployment[destinations][0]=http://test1.com
+        deployment[destinations][1]=http://test2.com
+        deployOnSuccess=1
+        composerPath=/path/to/composer.json
+        phingPath=/path/to/build.xml
+        notificationHooks[0][type]=slack
+        notificationHooks[0][url]=https://slack.com/hook-url1
+        notificationHooks[0][events][0]=create-build
+        notificationHooks[0][events][1]=build-success
+        notificationHooks[1][type]=slack
+        notificationHooks[1][url]=https://slack.com/hook-url2
+        notificationHooks[1][events][0]=create-build
+        notificationHooks[1][events][1]=build-fail
+        credentials[0][type]=aws                                                          |
+        credentials[0][profile]=my-profile-1                                                 |
+        credentials[0][key]=KJGKGVGH69546516515HJGKHGV                                   |
+        credentials[0][secret]=gregregze56grzhbzhb6z5g4a65f14ge56gz46g5bxgze56g4ze65gzeag56 |
+        credentials[1][type]=aws                                                          |
+        credentials[1][profile]=my-profile-2                                                 |
+        credentials[1][key]=KJGKGVGH69546516515HJGKHXX                                   |
+        credentials[1][secret]=gregregze56grzhbzhb6z5g4a65f14ge56gz46g5bcgze56g4ze65gzeagxx |
+        
+        The following parameters are only mandatory if deployment[type]=zend-server:
+        
+        deployment[baseUri]=my.base-uri.com
+        deployment[apiKey]=zend-server-api-key
+        deployment[apiSecret]=zend-server-api-secret
+
++ Response 200 (application/hal+json)
+
+        {
+            "settingId": 20,
+            "ref": "develop",
+            "preparePhingTargets":
+                [
+                    "clean-up",
+                    "setup-env",
+                    "doctrine-proxies"
+                ],
+            "preDeployPhingTargets":
+                [
+                    "clean-up",
+                    "setup-env",
+                    "doctrine-proxies",
+                    "test"
+                ],
+            "preparePhingVariables": [],
+            "preDeployPhingVariables":[],
+            "phpVersions":
+                [
+                    "5.3.3",
+                    "5.3.max",
+                    "5.4.max",
+                    "5.5.max"
+                ],
+            "enabledTests":
+                [
+                    {
+                        "type": "phpunit",
+                        "paths":
+                            [
+                                "\/path\/one",
+                                "\/path\/two"
+                            ],
+                        "blocking": 1,
+                        "phingTargets":
+                            [
+                                "reset-db",
+                                "import-fixtures"
+                            ],
+                        "phingVariables":
+                            {
+                                "env": "testing",
+                                "hostname": "site.com"
+                            }
+                    },
+                    {
+                        "type": "atoum",
+                        "paths":
+                            [
+                                "\/path\/three",
+                                "\/path\/four"
+                            ],
+                        "blocking": 0,
+                        "phingTargets":
+                            [
+                                "reset-db",
+                                "import-fixtures"
+                            ],
+                        "phingVariables":
+                            {
+                                "env": "staging",
+                                "hostname": "site2.com"
+                            }
+                    }
+                ],
+            "deployment": {
+                "type": "tarball",
+                "destinations":
+                    [
+                        "http:\/\/first-deployment-dest.com",
+                        "http:\/\/second-deployment-dest.com"
+                    ]
+            },
+            "deployOnSuccess": "1"
+            "composerPath": "/path/to/composer.json",
+            "phingPath": "/path/to/build.xml",
+            "notificationHooks": [  
+                {  
+                    "url":"https:\/\/slack.com\/hook-url1",
+                    "events":[  
+                        "create-build",
+                        "build-success"
+                    ],
+                    "type":"slack"
+                },
+                {  
+                    "url":"https:\/\/slack.com\/hook-url2",
+                    "events":[  
+                        "create-build",
+                        "build-fail"
+                    ],
+                    "type":"slack"
+                }
+            ],
+            "credentials":[  
+                {  
+                    "id":"547df4ce-1e8a-11e5-a09f-080027d3db80",
+                    "type":"aws",
+                    "profile":"my-profile-1",
+                    "key":"KJGKGVGH69546516515HJGKHGV",
+                    "secret":"gregregze56grzhbzhb6z5g4a65f14ge56gz46g5bxgze56g4ze65gzeag56"
+                },
+                {  
+                    "id":"547dfd8d-1e8a-11e5-a09f-080027d3db80",
+                    "type":"aws",
+                    "profile":"my-profile-2",
+                    "key":"KJGKGVGH69546516515HJGKHXX",
+                    "secret":"gregregze56grzhbzhb6z5g4a65f14ge56gz46g5bcgze56g4ze65gzeagxx"
+                }
+            ],
+            "_links": {
+                "self": {
+                    "href": "http:\/\/localhost\/api\/project\/git-hub%2Fcontinuousphptest%2Fcphp-test1\/settings\/20"
+                }
+            }
+        }
+        
+# Group Project References
+Get the list of built references for the given project.
+
+## Project References Collection [/projects/{project_id}/references]
+The Project References collection.
+
++ Parameters
+    + project_id (required, string, `git-hub%2Fuser1%2Frepo-name`) ... An URL-encoded string, composed of the provider key (e.g. 'git-hub' or 'your-git-server') and the repository URI.
+
+### Get the References list of a given Project [GET]
++ Response 200 (application/hal+json)
+
+        {  
+            "_links":{  
+                "self":{  
+                    "href":"http:\/\/localhost\/api\/projects\/git-hub\/continuousphptest\/cphp-test1\/references?page=1"
+                },
+                "first":{  
+                    "href":"http:\/\/localhost\/api\/projects\/git-hub%2Fcontinuousphptest%2Fcphp-test1\/references"
+                },
+                "last":{  
+                    "href":"http:\/\/localhost\/api\/projects\/git-hub\/continuousphptest\/cphp-test1\/references?page=1"
+                }
+            },
+            "_embedded":{  
+                "references":[  
+                    {  
+                        "referenceId":"refs\/heads\/master",
+                        "name":"refs\/heads\/master",
+                        "_links":{  
+                            "self":{  
+                                "href":"http:\/\/localhost\/api\/projects\/git-hub%2Fcontinuousphptest%2Fcphp-test1\/references\/refs%2Fheads%2Fmaster"
+                            }
+                        }
+                    },
+                    {  
+                        "referenceId":"refs\/tags\/1.2.3",
+                        "name":"refs\/tags\/1.2.3",
+                        "_links":{  
+                            "self":{  
+                                "href":"http:\/\/localhost\/api\/projects\/git-hub%2Fcontinuousphptest%2Fcphp-test1\/references\/refs%2Ftags%2F1.2.3"
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+
+# Group PHP Versions
+Retrieve the available **PHP versions**.
+
+## PHP Versions Collection [/api/php-versions]
+The PHP versions collection.
+
+### Get the list of available PHP versions [GET]
++ Response 200 (application/hal+json)
+
+        {
+            "_links": {
+                "self": {
+                    "href": "http:\/\/localhost\/api\/php-versions?page=1"
+                },
+                "first": {
+                    "href": "http:\/\/localhost\/api\/php-versions"
+                },
+                "last": {
+                    "href": "http:\/\/localhost\/api\/php-versions?page=1"
+                }
+            },
+            "_embedded": {
+                "php-versions":
+                    [
+                        {
+                            "id": "5.5.6",
+                            "_links": {
+                                "self": {
+                                    "href":    "http:\/\/localhost\/api\/php-versions\/5.5.6"
+                                }
+                            }
+                        },
+                        {
+                            "id": "5.4.22",
+                            "_links": {
+                                "self": {
+                                    "href": "http:\/\/localhost\/api\/php-versions\/5.4.22"
+                                }
+                            }
+                        },
+                        {
+                            "id": "5.3.27",
+                            "_links": {
+                                "self": {
+                                    "href": "http:\/\/localhost\/api\/php-versions\/5.3.27"
+                                }
+                            }
+                        }
+                    ]
+            }
+        }
+
+## Files Collection [/api/repositories/{repository_id}/files{?search_type,search}]
+The Files collection.
+
++ Parameters
+    + repository_id (required, string, `git-hub%2Fuser1%2Frepo-name`) ... An URL-encoded string, composed of the provider key (e.g. 'git-hub' or 'your-git-server') and the repository URI.
+    + search_type (required, string, `path|content`) ... Must be `path` or `content`. Decides whether the search is made on the file paths or in the file contents.
+    + search (required, string, `phpunit.xml`) ... The term to search for.
+
+### Find files in the given repository [GET]
++ Request
+
+        /api/repositories/git-hub%2Fuser1%2Ftest-repository1/files?search_type=path&search=phpunit.xml
+
++ Response 200 (application/hal+json)
+
+        {
+            "_links": {
+                "self": {
+                    "href": "http:\/\/localhost\/api\/repositories\/git-hub\/continuousphptest\/cphp-test1\/files?page=1"
+                },
+                "first": {
+                    "href": "http:\/\/localhost\/api\/repositories\/git-hub%2Fcontinuousphptest%2Fcphp-test1\/files"
+                },
+                "last": {
+                    "href":"http:\/\/localhost\/api\/repositories\/git-hub\/continuousphptest\/cphp-test1\/files?page=1"
+                }
+            },
+            "_embedded": {
+                "files":
+                    [
+                        {
+                            "name": "phpunit.xml",
+                            "path": "phpunit.xml"
+                        },
+                        {
+                            "name": "phpunit.xml",
+                            "path":"test\/phpunit.xml"
+                        }
+                    ]
+            }
+        }
+        
+# Group Builds
+Create and retrieve **builds**.
+
+## Builds Collection [/api/projects/{project_id}/builds{?ref,state,result,exclude_pull_requests*}]
+The Builds collection.
+
++ Parameters
+    + project_id (required, string, `git-hub/user/repo-name`) ... An URL-encoded string, composed of the provider key (e.g. 'git-hub' or 'your-git-server') and the repository URI.
+
+### Create a Build [POST]
++ Request (application/x-www-form-urlencoded)
+
++ Response 201 (application/hal+json)
+
+        {
+            "buildId": "487c7ec0-6749-4347-8972-f54f49f4062a",
+            "ref": "refs\/heads\/master",
+            "commit": "90eba396052c1d15fceede888863ae060e0fae6a",
+            "projectId": 213,
+            "created": "2014-10-30T20:35:00+01:00",
+            "state": "in-progress",
+            "testResults": [],
+            "duration": null,
+            "codeCoverage": null,
+            "commitMessage": "Here comes the commit message",
+            "settingCopy":"{\u0022settingId\u0022:\u0022refs\\\/heads\\\... (truncated)",
+            "availableDownloads":[  
+                {  
+                    "value":"deploy",
+                    "label":"Deployment Package"
+                },
+                {  
+                    "value":"test",
+                    "label":"Testing Package"
+                },
+                {
+                    "value":"phpunit-junit-result-5.5.13",
+                    "label":"PHP 5.5.13 phpunit JUnit",
+                },
+                {
+                    "value":"phpunit-code-coverage-5.5.13",
+                    "label":"PHP 5.5.13 Code Coverage",
+                },
+                {
+                    "value":"phpcs-reports",
+                    "label":"PHPCS Reports",
+                }
+            ],
+            "compareUrl":null,
+            "activities":[
+                {
+                    "activityId":null,
+                    "name":"package.targz",
+                    "phpVersion":null,
+                    "state":"pending",
+                    "result":null
+                },
+                {
+                    "activityId":null,
+                    "name":"package.targz",
+                    "phpVersion":null,
+                    "state":"pending",
+                    "result":null
+                },
+                {
+                    "activityId":null,
+                    "name":"test.coverage.phpunit",
+                    "phpVersion":"5.5.13",
+                    "state":"pending",
+                    "result":null
+                },
+                {
+                    "activityId":null,
+                    "name":"test.phpunit",
+                    "phpVersion":"5.5.13",
+                    "state":"pending",
+                    "result":null
+                }
+            ],
+            "_embedded": {
+                "launchedBy": {
+                    "id": 216,
+                    "status": "active",
+                    "username": "ppaulis",
+                    "email": "pascal.paulis@continuousphp.com",
+                    "name": null,
+                    "company": null,
+                    "location": null,
+                    "created": null,
+                    "url": null,
+                    "_links": {
+                        "self": {
+                            "href": "http:\/\/localhost\/api\/users\/216"
+                        }
+                    }
+                }
+            },
+            "_links": {
+                "self": {
+                    "href": "http:\/\/localhost\/api\/projects\/git-hub%2Fcontinuousphptest%2Fcphp-test1\/builds\/487c7ec0-6749-4347-8972-f54f49f4062a"
+                }
+            }
+        }
+
+### Get the Build list [GET]
++ Parameters
+    + ref (optional, string, `refs/heads/master`)
+    + state (optional, array, `complete`)
+    + result (optional, array, `success`)
+    + exclude_pull_requests (optional, string, `1`)
+
++ Request
+    + Headers
+
+            Accept: application/hal+json
+        
++ Response 200 (application/hal+json)
+
+        {
+            "_links": {
+                "self": {
+                    "href": "http:\/\/localhost\/api\/projects\/git-hub\/continuousphptest\/cphp-test1\/builds?page=1"
+                },
+                "first": {
+                    "href": "http:\/\/localhost\/api\/projects\/git-hub%2Fcontinuousphptest%2Fcphp-test1\/builds"
+                },
+                "last": {
+                    "href": "http:\/\/localhost\/api\/projects\/git-hub\/continuousphptest\/cphp-test1\/builds?page=1"
+                }
+            },
+            "_embedded": {
+                "builds": [
+                    {
+                        "buildId": "aaaa-1111-bbbb-2222-cccc-3333",
+                        "ref": "master",
+                        "commit": "vzeg1ez65gb5rz6b1rz561zg6ze1g65g1",
+                        "projectId": 217,
+                        "launchedBy": null,
+                        "created": "2014-10-30T20:39:02+01:00",
+                        "state": "in-progress",
+                        "testResults": [
+                            {
+                                "result": true,
+                                "filePath": "\/path\/to\/file",
+                                "coveragePercentage": 87,
+                                "nbOfLinesToCover": 3000,
+                                "type": "php-unit"
+                            }
+                        ],
+                        "duration": null,
+                        "codeCoverage": null,
+                        "commitMessage": null,
+                        "settingCopy":"{\u0022settingId\u0022:\u0022refs\\\/heads\\\... (truncated)",
+                        "availableDownloads":[  
+                            {  
+                                "value":"deploy",
+                                "label":"Deployment Package"
+                            },
+                            {  
+                                "value":"test",
+                                "label":"Testing Package"
+                            },
+                            {
+                                "value":"phpunit-junit-result-5.5.13",
+                                "label":"PHP 5.5.13 phpunit JUnit",
+                            },
+                            {
+                                "value":"phpunit-code-coverage-5.5.13",
+                                "label":"PHP 5.5.13 Code Coverage",
+                            },
+                            {
+                                "value":"phpcs-reports",
+                                "label":"PHPCS Reports",
+                            }
+                        ],
+                        "compareUrl":null,
+                        "_links": {
+                            "self": {
+                                "href": "http:\/\/localhost\/api\/projects\/git-hub%2Fcontinuousphptest%2Fcphp-test1\/builds\/aaaa-1111-bbbb-2222-cccc-3333"
+                            }
+                        }
+                    },
+                    {
+                        "buildId": "dddd-4444-eeee-5555-ffff-6666",
+                        "ref": "master",
+                        "commit": "vzeg1ez65gb5rz6b1rz561zg6ze1g65g2",
+                        "projectId": 217,
+                        "launchedBy": null,
+                        "created": "2014-10-30T20:39:02+01:00",
+                        "state": "finished",
+                        "testResults": [],
+                        "duration": null,
+                        "codeCoverage": null,
+                        "commitMessage": null,
+                        "progress": "package",
+                        "_links": {
+                            "self": {
+                                "href": "http:\/\/localhost\/api\/projects\/git-hub%2Fcontinuousphptest%2Fcphp-test1\/builds\/dddd-4444-eeee-5555-ffff-6666"
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+
+## Build [/api/projects/{project_id}/builds/{id}]
+A single Build resource with all its details.
+
++ Parameters
+    + project_id (required, string, `git-hub%2Fuser1%2Frepo-name`) ... An URL-encoded string, composed of the provider key (e.g. 'git-hub' or 'your-git-server') and the repository URI.
+    + id (required, string, `dddd-4444-eeee-5555-ffff-6666`) ... The unique Build ID.
+
+### Retrieve a Build [GET]
++ Response 200 (application/hal+json)
+
+        {
+            "buildId": "aaaa-1111-bbbb-2222-cccc-3333",
+            "ref": "master",
+            "commit": "vzeg1ez65gb5rz6b1rz561zg6ze1g65g1",
+            "projectId": 217,
+            "launchedBy": null,
+            "created": "2014-10-30T20:39:02+01:00",
+            "state": "in-progress",
+            "testResults": [
+                {
+                    "result": true,
+                    "filePath": "\/path\/to\/file",
+                    "coveragePercentage": 87,
+                    "nbOfLinesToCover": 3000,
+                    "type": "php-unit"
+                }
+            ],
+            "duration": null,
+            "codeCoverage": null,
+            "commitMessage": null,
+            "activities":[
+                {
+                    "activityId":"aaaa-1234-bbbb-4567",
+                    "name":"package.targz",
+                    "phpVersion":null,
+                    "state":"finished",
+                    "result":"success"
+                },
+                {
+                    "activityId":"aaaa-1234-bbbb-cccc",
+                    "name":"package.targz",
+                    "phpVersion":null,
+                    "state":"finished",
+                    "result":"success"
+                },
+                {
+                    "activityId":"4568-dgrf-5847-fjef",
+                    "name":"test.coverage.phpunit",
+                    "phpVersion":"5.5.13",
+                    "state":"in-progress",
+                    "result":null
+                },
+                {
+                    "activityId":"4568-dgrf-5847-x5fr",
+                    "name":"test.phpunit",
+                    "phpVersion":"5.5.13",
+                    "state":"finished",
+                    "result":"failed"
+                }
+            ],
+            "_links": {
+                "self": {
+                    "href": "http:\/\/localhost\/api\/projects\/git-hub%2Fcontinuousphptest%2Fcphp-test1\/builds\/aaaa-1111-bbbb-2222-cccc-3333"
+                }
+            }
+        }
+
+# Group Providers
+Retrieve **providers**.
+
+## Provider [/api/providers/{provider_key}{?includeTempCredentials}]
+A single Build resource with all its details.
+
++ Parameters
+    + provider_key (required, string, `my-git-server-key`) ... The unique key that represents the concerned Git Server on continuousphp.
+    + includeTempCredentials (optional, integer, `1`) ... Only necessary if the provider uses OAuth 1. It includes into the provider the temporary credentials needed for 3-legged OAuth 1.
+
+### Retrieve a Provider [GET]
++ Response 200 (application/hal+json)
+
+        {
+            "providerId": 205,
+            "name": "The Provider's name",
+            "uniqueIdentifier": "my-git-server",
+            "url": "https:\/\/api.github.com",
+            "type": "git-hub",
+            "_links": {
+                "self": {
+                    "href": "http:\/\/localhost\/api\/providers\/205"
+                }
+            }
+        }

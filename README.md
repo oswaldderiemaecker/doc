@@ -19,5 +19,5 @@ Thank you for your comprehension.
 ## API documentation
 
 The API is documented using [API Blueprint](https://apiblueprint.org/) description language.
-If you want to contribute, just edit the [description file](blob/master/apiary.apib)
+If you want to contribute, just edit the [description file](apiary.apib)
 and propose a Pull Request.

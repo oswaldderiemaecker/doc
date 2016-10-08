@@ -484,6 +484,49 @@ The Terms & Conditions Acceptance collection.
             }
         }
 
+# Group Organizations
+
+## Organization Collection
+
+## Organization [/api/organizations/{provider}%2F{login}]
+An organization details
+
++ Parameters
+  + provider: `git-hub` (string, required) - `provider` of the organization
+  + login: `continuousphp` (string, required) - `login` of the organization on its specific provider
+
+### Get an Organization [GET]
++ Response 200 (application/hal+json)
+        
+        {
+            "organizationId": 2,
+            "login": "continuousphp",
+            "name": "Continuous S.A.",
+            "avatar_url": "https://avatars.githubusercontent.com/u/4239735?v=3",
+            "created": "2010-01-01T00:00:00+01:00",
+            "_embedded": {
+                "provider": {
+                    "providerId": 1,
+                    "uniqueIdentifier": "git-hub",
+                    "url": "https://api.github.com",
+                    "baseUrl": "https://github.com",
+                    "name": "GitHub",
+                    "type": "git-hub",
+                    "_links": {
+                        "self": {
+                            "href": "https://api.continuousphp.com/api/providers/1"
+                        }
+                    }
+                }
+            },
+            "_links": {
+                "self": {
+                    "href": "https://api.continuousphp.com/api/organizations/2"
+                }
+            }
+        }
+
+
 # Group Repositories
 Retrieve the **repositories**.
 

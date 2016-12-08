@@ -46,6 +46,12 @@ As soon as the testing package is created, the tests will start:
 
 ![behat build end](/assets/doc/testing/behat/build-end.png)
 
+## Parallelization
+
+You can parallelize your Behat tests by splitting them up into multiple `*.yml` files. Once the tests are splitted up,
+simply add all the `yml` files to your Behat configuration in the pipeline. continuousphp will then automatically start a
+new activity for each `yml` file and PHP version.
+
 ## Downloads
 
 When the build is finished, you can download the JUnit report that continuousphp automatically generated. Simply go to the build list and click the Download button to see which downloads are available for your builds.
@@ -54,6 +60,59 @@ When the build is finished, you can download the JUnit report that continuousphp
   <h2 class="left"><i class="fa fa-exclamation-triangle"></i></h2>
   Currently, only Behat 2.x supports the creation of a JUnit report. JUnit support for Behat 3.x will be available with Behat 3.1 that is currently in RC state.
 </div>
+
+## UI Testing with Selenium and Chrome
+
+In this example we will use the [Selenium Standalone Server](/documentation/browser-ui-testing/selenium-server/) and the
+*Chrome* webbrowser to run UI tests. Both components are installed by default in the continuousphp containers.
+
+### Setup
+Besides Behat, you need to install the [Selenium WebDriver](http://mink.behat.org/en/latest/drivers/selenium2.html) and [Mink extension](http://mink.behat.org/en/latest/at-a-glance.html) by adding them to your `composer.json` file:
+ 
+```json
+"require-dev": {
+  "behat/mink": "~1.7.0",
+  "behat/mink-extension": "*",
+  "behat/mink-browserkit-driver": "*",
+  "behat/mink-selenium2-driver": "*"
+}
+```
+
+You can now configure Behat to use the *Chrome* webbrowser through the Selenium2 WebDriver by adding the
+following lines to your `behat.yml` file:
+ 
+```yaml
+default:
+  suites:
+    defalut:
+      contexts:
+        - FeatureContext
+        - Behat\MinkExtension\Context\MinkContext
+  extensions:
+    Behat\MinkExtension:
+      browser_name: chrome
+      base_url: http://localhost
+      sessions:
+        default:
+          selenium2:
+            wd_host: "http://selenium:4444/wd/hub"
+```
+
+You can now create and run scenarios based on test steps from the `MinkContext`. Example:
+
+```
+Feature: Navigating through the Justice League's secret website
+  In order to use the Justice League's secret website
+  As a member of the Justice League
+  I need to authenticate myself and be able to navigate through the website
+
+  Scenario: Successfully login to the JLA's secret website
+    Given I am on "https://www.batman.com"
+    When I fill in "username" with: "bwayne"
+    And I fill in "password" with: "Sup3rS3cr3t"
+    And I press "Log In"
+    Then I should be on "/super-villain-overview.html"
+```
 
 ## UI Testing with Selenium and PhantomJS
 
@@ -91,59 +150,6 @@ default:
         default:
           selenium2:
             wd_host: "http://127.0.0.1:8643"
-```
-
-You can now create and run scenarios based on test steps from the `MinkContext`. Example:
-
-```
-Feature: Navigating through the Justice League's secret website
-  In order to use the Justice League's secret website
-  As a member of the Justice League
-  I need to authenticate myself and be able to navigate through the website
-
-  Scenario: Successfully login to the JLA's secret website
-    Given I am on "https://www.batman.com"
-    When I fill in "username" with: "bwayne"
-    And I fill in "password" with: "Sup3rS3cr3t"
-    And I press "Log In"
-    Then I should be on "/super-villain-overview.html"
-```
-
-## UI Testing with Selenium and Chrome
-
-In this example we will use the [Selenium Standalone Server](/documentation/browser-ui-testing/selenium-server/) and the
-*Chrome* webbrowser to run UI tests. Both components are installed by default in the continuousphp containers.
-
-### Setup
-Besides Behat, you need to install the [Selenium WebDriver](http://mink.behat.org/en/latest/drivers/selenium2.html) and [Mink extension](http://mink.behat.org/en/latest/at-a-glance.html) by adding them to your `composer.json` file:
- 
-```json
-"require-dev": {
-  "behat/mink": "~1.7.0",
-  "behat/mink-extension": "*",
-  "behat/mink-browserkit-driver": "*",
-  "behat/mink-selenium2-driver": "*"
-}
-```
-
-You can now configure Behat to use the *Chrome* webbrowser through the Selenium2 WebDriver by adding the
-following lines to your `behat.yml` file:
- 
-```yaml
-default:
-  suites:
-    defalut:
-      contexts:
-        - FeatureContext
-        - Behat\MinkExtension\Context\MinkContext
-  extensions:
-    Behat\MinkExtension:
-      browser_name: chrome
-      base_url: http://localhost
-      sessions:
-        default:
-          selenium2:
-            wd_host: "http://127.0.0.1:4444/wd/hub"
 ```
 
 You can now create and run scenarios based on test steps from the `MinkContext`. Example:

@@ -59,6 +59,7 @@ Our containers run PHP-7.1.0-dev with the following PHP extensions:
 * sysvshm
 * tokenizer
 * wddx
+* xdebug
 * xml
 * xmlreader
 * xmlwriter

@@ -6,4 +6,4 @@ logo:           notification
 order:          17
 sitemap:        false
 ---
-continuousphp supports multiple notification adapters. For each one, you can choose to be notified upon build creation, build success or build failure.
+continuousphp supports multiple notification adapters. For each one, you can choose to be notified upon build creation, build success, build failure and/or successful deployment.

@@ -9,11 +9,11 @@ continuousphp supports UI Testing with the [Selenium Standalone Server](http://w
 
 <div class="row panel callout warning clearfix">
   <h2 class="left"><i class="fa fa-exclamation-triangle"></i></h2>
-  Our containers are equipped with the version 2.53.0 of Selenium Standalone Server. No need to install it yourself!
+  continuousphp uses the [official Selenium Server/Chrome Docker image](https://hub.docker.com/r/selenium/standalone-chrome/). No need to install it yourself!
 </div>
 
 ## Installation & Usage
-Selenium Standalone Server runs in every container on continuousphp. Check Selenium's
+The Selenium Standalone Server and Chrome are available in every activity on continuousphp. Check Selenium's
 [documentation](https://github.com/SeleniumHQ/selenium/wiki/Grid2) or our examples for more information:
 
 Check our documentation pages for examples:

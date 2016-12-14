@@ -10,7 +10,6 @@ continuousphp docker containers include by default the following services:
 
 * [mysql](/documentation/databases/mysql/) 
 * [postgreql](/documentation/databases/postgresql/)
-* virtuoso open source
 * [couchbase](/documentation/nosql/couchbase/)
 * [apache2](/documentation/webserver/)
 * [mongodb](/documentation/nosql/mongodb/)

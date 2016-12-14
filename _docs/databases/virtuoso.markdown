@@ -6,16 +6,16 @@ order:          6
 excerpt:        "Virtuoso 7 support by continuousphp"
 ---
 
-continuousphp uses the [official Virtuoso Docker image](https://hub.docker.com/r/tenforce/virtuoso/). No need to install it yourself!
+continuousphp uses the [official Virtuoso Docker image](https://hub.docker.com/r/tenforce/virtuoso/).
 
 ## Specification
-Virtuoso is part of our additional container, That's mean is not automatically available, for enable Virtuoso container you must add specific
-environement variable `CPHP_SERVICE_VIRTUOSO_7` to true value in your pipeline settings for each testing target (e.g Phpunit, Behat...)
 
-__The Current versions supported is Virtuoso 7.2.0.__
+A Virtuoso 7 container is available for each activity in your build. To enable it, simply add an environment variable `CPHP_SERVICE_VIRTUOSO_7` with an arbitrary value in your pipeline configuration. E.g. if you need Virtuoso in your Behat tests, go to the Testing Settings (step 2 of the pipeline) and add the environment variable to the Behat configuration.
 
-The Virtuoso settings is default provided by official container.
-But in order to allowed you to import your RDF specification, the `DirsAllowed` value has been set to root path "/".
+__The currently supported version is Virtuoso 7.2.0.__
+
+The default Virtuoso settings are those of the official container.
+But to allow you to import your RDF specification, the `DirsAllowed` value has been set to the root path "/".
 
 ## Connecting to Virtuoso
 

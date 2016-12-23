@@ -131,6 +131,7 @@ echo $PACKAGE_PATH
 mkdir ./clevercloud-demo-zf-apigility-phinx 
 tar xzf $PACKAGE_PATH -C ./clevercloud-demo-zf-apigility-phinx
 cd ./clevercloud-demo-zf-apigility-phinx
+
 # Displaying application configuration files
 cat build.properties
 cat phinx.yml

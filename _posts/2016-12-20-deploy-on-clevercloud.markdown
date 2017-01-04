@@ -110,12 +110,6 @@ These are key files to set up your application installation, testing and deploym
    4. Click on **Next** to move to the Package Settings
 3. In the Package Settings (Step 3):
    1. Select **Script**
-   2. In the **PHING** section, select the following Phing Targets: **setup-phinx** and **generate-config**
-      * db.host: $MYSQL_ADDON_HOST
-      * db.port: $MYSQL_ADDON_PORT
-      * db.dbname: skeleton
-      * db.username: $MYSQL_ADDON_USER
-      * db.password: $MYSQL_ADDON_PASSWORD
    2. Click on **Next** to move to the Deployment Settings
 4. In the Deployment Settings (Step 4):
    1. Check the **enable deployment for successful builds** checkbox 

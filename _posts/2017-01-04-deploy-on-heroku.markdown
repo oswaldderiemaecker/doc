@@ -41,10 +41,15 @@ So let's start and create an Heroku application for your testing environment.
   7. Before creating a Free Ignite mysql database, you first need to add your credit card details, goto the [Heroku Billing Dashboard](https://dashboard.heroku.com/account/billing)
   8. To create a Free Ignite mysql database type: ```heroku addons:create cleardb:ignite --app heroku-demo-zf-apigility-phinx```
   9. To get the database url, type: ```heroku config --app heroku-demo-zf-apigility-phinx | grep CLEARDB_DATABASE_URL``` 
-  10. Take note of the database URL we will use it in continuousphp later in this tutorial
+  10. Set the Heroku Config Variables:
+      * ```heroku config:set MYSQL_ADDON_DB=heroku_d09de4868a4db10```
+      * ```heroku config:set MYSQL_ADDON_HOST=us-cdbr-iron-east-04.cleardb.net```
+      * ```heroku config:set MYSQL_ADDON_PASSWORD=7920707c```
+      * ```heroku config:set MYSQL_ADDON_USER=b4c07c7d524860```
+      * ```heroku config:set WWWROOT=/public```
   11. Now let's configure the **continuousphp Heroku Buildpacks**, type: ```heroku buildpacks:set https://github.com/continuousphp/heroku-buildpack-php -a heroku-demo-zf-apigility-phinx```
 
-Your Heroku app is now setup, please keep your **Heroku Token** and **database url** to use later in this tutorial. Let's now set continuousphp.
+Your Heroku app is now setup, please keep your **Heroku Token** to use later in this tutorial. Let's now set continuousphp.
 
 ## Set-up continuousphp
 
@@ -104,13 +109,7 @@ These are key files to set-up your application installation, testing and deploym
    4. Click on **Next** to move to the Package Settings
 3. In the Package Settings (Step 3):
    1. Select **Script**
-   2. In the **PHING** section, select the following Phing Targets: **setup-phinx** and **generate-config**
-      * db.host: $MYSQL_ADDON_HOST
-      * db.port: $MYSQL_ADDON_PORT
-      * db.dbname: skeleton
-      * db.username: $MYSQL_ADDON_USER
-      * db.password: $MYSQL_ADDON_PASSWORD
-   2. Click on **Next** to move to the Deployment Settings
+   3. Click on **Next** to move to the Deployment Settings
 4. In the Deployment Settings (Step 4):
    1. Check the **enable deployment for successful builds** checkbox 
    2. Click on **+** on the **SCRIPT** panel

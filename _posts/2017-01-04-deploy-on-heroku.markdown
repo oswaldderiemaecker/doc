@@ -34,20 +34,15 @@ So let's start and create an Heroku application for your testing environment.
 5. Now, let's configure our project with the Heroku CLI, in your console:
   1. Type: heroku login 
   2. Provide the login and password you used during sign up
-  3. To get a Token, type: heroku auth:token
+  3. To get a Token, type: ```heroku auth:token```
   4. Take note of the Token we will use it in continuousphp later in this tutorial
-  5. To logout from heroku, type: heroku logout
+  5. To logout from heroku, type: ```heroku logout```
   6. Type: export HEROKU_API_KEY=xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx 
   7. Before creating a Free Ignite mysql database, you first need to add your credit card details, goto the [Heroku Billing Dashboard](https://dashboard.heroku.com/account/billing)
-  8. To create a Free Ignite mysql database type: heroku addons:create cleardb:ignite --app heroku-demo-zf-apigility-phinx
-  9. To get the database url, type: heroku config --app heroku-demo-zf-apigility-phinx | grep CLEARDB_DATABASE_URL 
+  8. To create a Free Ignite mysql database type: ```heroku addons:create cleardb:ignite --app heroku-demo-zf-apigility-phinx```
+  9. To get the database url, type: ```heroku config --app heroku-demo-zf-apigility-phinx | grep CLEARDB_DATABASE_URL``` 
   10. Take note of the database URL we will use it in continuousphp later in this tutorial
-6. Now let's configure the Heroku Buildpacks
-  1. Goto Heroku website, in the **heroku-demo-zf-apigility-phinx** [App Settings](https://dashboard.heroku.com/apps/heroku-demo-zf-apigility-phinx/settings)
-  2. Goto **Buildpacks**
-  3. Remove the default **heroku/php** Heroku Buildpack
-  4. Click on **Add buildpacks**
-  5. In the **Buildpack URL** type: https://github.com/continuousphp/heroku-buildpack-php
+  11. Now let's configure the Heroku Buildpacks, type: ```heroku buildpacks:set https://github.com/continuousphp/heroku-buildpack-php -a heroku-demo-zf-apigility-phinx```
 
 Your Heroku app is now setup, please keep your **Heroku Token** and **database url** to use later in this tutorial. Let's now set continuousphp.
 

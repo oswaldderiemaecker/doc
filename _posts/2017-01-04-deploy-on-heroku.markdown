@@ -42,7 +42,7 @@ So let's start and create an Heroku application for your testing environment.
   8. To create a Free Ignite mysql database type: ```heroku addons:create cleardb:ignite --app heroku-demo-zf-apigility-phinx```
   9. To get the database url, type: ```heroku config --app heroku-demo-zf-apigility-phinx | grep CLEARDB_DATABASE_URL``` 
   10. Take note of the database URL we will use it in continuousphp later in this tutorial
-  11. Now let's configure the Heroku Buildpacks, type: ```heroku buildpacks:set https://github.com/continuousphp/heroku-buildpack-php -a heroku-demo-zf-apigility-phinx```
+  11. Now let's configure the **continuousphp Heroku Buildpacks**, type: ```heroku buildpacks:set https://github.com/continuousphp/heroku-buildpack-php -a heroku-demo-zf-apigility-phinx```
 
 Your Heroku app is now setup, please keep your **Heroku Token** and **database url** to use later in this tutorial. Let's now set continuousphp.
 

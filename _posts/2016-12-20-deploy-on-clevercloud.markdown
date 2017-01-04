@@ -126,10 +126,6 @@ mkdir ./clevercloud-demo-zf-apigility-phinx
 tar xzf $PACKAGE_PATH -C ./clevercloud-demo-zf-apigility-phinx
 cd ./clevercloud-demo-zf-apigility-phinx
 
-# Displaying application configuration files
-cat build.properties
-cat phinx.yml
-
 # Removing composer, or clevercloud will run a composer update in production
 rm composer.json composer.lock
 

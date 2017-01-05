@@ -125,14 +125,16 @@ mkdir ./heroku-demo-zf-apigility-phinx
 tar xzf $PACKAGE_PATH -C ./heroku-demo-zf-apigility-phinx
 cd ./heroku-demo-zf-apigility-phinx
 
+cd ./heroku-demo-zf-apigility-phinx && cat build.properties && env
+
 # Install Heroku CLI
-sudo apt-get update
-sudo apt-get install software-properties-common
-sudo apt-get install apt-transport-https
+sudo apt-get -qq update
+sudo apt-get -qq install software-properties-common
+sudo apt-get -qq install apt-transport-https
 sudo add-apt-repository "deb https://cli-assets.heroku.com/branches/stable/apt ./"
 curl -L https://cli-assets.heroku.com/apt/release.key | sudo apt-key add -
-sudo apt-get update
-sudo apt-get install heroku
+sudo apt-get -qq update
+sudo apt-get -qq install heroku
 
 # Install heroku-builds
 heroku plugins:install heroku-builds

@@ -29,7 +29,7 @@ So let's start and create an Heroku application for your testing environment.
 
 1. Open [https://www.heroku.com/](https://www.heroku.com/), and then choose **Sign Up Free**.
 2. Follow the sign-in process
-3. Fork the [Sample Application](https://github.com/oswaldderiemaecker/heroku-demo-zf-apigility-phinx) 
+3. Fork the [Sample Application](https://github.com/continuousdemo/heroku-demo-zf-apigility-phinx) 
 4. Type: cd heroku-demo-zf-apigility-phinx
 5. Now, let's configure our project with the Heroku CLI, in your console:
   1. Type: heroku login 
@@ -38,16 +38,17 @@ So let's start and create an Heroku application for your testing environment.
   4. Take note of the Token we will use it in continuousphp later in this tutorial
   5. To logout from heroku, type: ```heroku logout```
   6. Type: export HEROKU_API_KEY=xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx 
-  7. Before creating a Free Ignite mysql database, you first need to add your credit card details, goto the [Heroku Billing Dashboard](https://dashboard.heroku.com/account/billing)
-  8. To create a Free Ignite mysql database type: ```heroku addons:create cleardb:ignite --app heroku-demo-zf-apigility-phinx```
-  9. To get the database url, type: ```heroku config --app heroku-demo-zf-apigility-phinx | grep CLEARDB_DATABASE_URL``` 
-  10. Set the Heroku Config Variables:
+  7. Let's create our Heroku app, type: ```heroku create -a heroku-demo-zf-apigility-phinx```
+  8. Before creating a Free Ignite mysql database, you first need to add your credit card details, goto the [Heroku Billing Dashboard](https://dashboard.heroku.com/account/billing)
+  9. To create a Free Ignite mysql database type: ```heroku addons:create cleardb:ignite --app heroku-demo-zf-apigility-phinx```
+  10. To get the database url, type: ```heroku config --app heroku-demo-zf-apigility-phinx | grep CLEARDB_DATABASE_URL``` 
+  11. Set the Heroku Config Variables:
       * ```heroku config:set MYSQL_ADDON_DB=heroku_d09de4868a4db10```
       * ```heroku config:set MYSQL_ADDON_HOST=us-cdbr-iron-east-04.cleardb.net```
       * ```heroku config:set MYSQL_ADDON_PASSWORD=7920707c```
       * ```heroku config:set MYSQL_ADDON_USER=b4c07c7d524860```
       * ```heroku config:set WWWROOT=/public```
-  11. Now let's configure the **continuousphp Heroku Buildpacks**, type: ```heroku buildpacks:set https://github.com/continuousphp/heroku-buildpack-php -a heroku-demo-zf-apigility-phinx```
+  12. Now let's configure the **continuousphp Heroku Buildpacks**, type: ```heroku buildpacks:set https://github.com/continuousphp/heroku-buildpack-php -a heroku-demo-zf-apigility-phinx```
 
 Your Heroku app is now setup, please keep your **Heroku Token** to use later in this tutorial. Let's now set continuousphp.
 
@@ -75,8 +76,7 @@ This application include the following files:
 * [phinx.yml.dist](https://github.com/continuousdemo/heroku-demo-zf-apigility-phinx/blob/master/phinx.yml.dist) with the Phinx Database migration configuration
 * [behat.yml](https://github.com/continuousdemo/heroku-demo-zf-apigility-phinx/blob/master/behat.yml) with the Behat configuration
 * [tests/phpunit.xml](https://github.com/continuousdemo/heroku-demo-zf-apigility-phinx/blob/master/tests/phpunit.xml) with the PHPUnit configuration
-* [Procfile](https://github.com/continuousdemo/heroku-demo-zf-apigility-phinx/blob/master/ccbuild.sh) with the Heroku build script file
-* [heroku/php.json](https://github.com/continuousdemo/heroku-demo-zf-apigility-phinx/blob/master/heroku/php.json) with the Heroku configuration and hook file
+* [Procfile](https://github.com/continuousdemo/heroku-demo-zf-apigility-phinx/blob/master/Procfile) with the Heroku build script file
 
 These are key files to set-up your application installation, testing and deployment. Feel free to take a look at them to get a better understanding.
 

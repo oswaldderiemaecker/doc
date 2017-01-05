@@ -121,24 +121,27 @@ These are key files to set up your application installation, testing and deploym
 
 ```bash
 # Print the Package Path and untar the package builded by continuousphp
-echo $PACKAGE_PATH 
-mkdir ./clevercloud-demo-zf-apigility-phinx 
-tar xzf $PACKAGE_PATH -C ./clevercloud-demo-zf-apigility-phinx
-cd ./clevercloud-demo-zf-apigility-phinx
+echo $PACKAGE_PATH
 
-# Removing composer, or clevercloud will run a composer update in production
-rm composer.json composer.lock
+# Untar the continuousphp package
+mkdir ./clevercloud-demo-zf-apigility-phinx
+tar xzf $PACKAGE_PATH -C ./clevercloud-demo-zf-apigility-phinx
+
+# Removing .git and removing composer, or clevercloud will run a composer update in production
+cd ./clevercloud-demo-zf-apigility-phinx && rm -rf .git && rm composer.json composer.lock && rm .gitignore
 
 # Initialise Git
-git init
-git checkout -B develop
+cd ./clevercloud-demo-zf-apigility-phinx && git init && git config --global user.email "cphp_build@example.com" && git config --global user.name "cphp_build" && git add -A
+
+# Commit
+cd ./clevercloud-demo-zf-apigility-phinx && git commit -m "Removing composer files" --quiet
 
 # Add the clever git remote repository with Deployment URL
-git remote add clever git+ssh://git@push-par-clevercloud-customers.services.clever-cloud.com/app_3b225c71-9417-4cee-b718-0d8e84f84f1b.git 
+cd ./clevercloud-demo-zf-apigility-phinx && git remote add clever git+ssh://git@push-par-clevercloud-customers.services.clever-cloud.com/app_aeac2554-a390-4995-bb78-86c86b8b1c39.git
 
 # Move the private key so git push can use it
 mv /home/cphp/.ssh/id_rsa.key /home/cphp/.ssh/id_rsa
-git push -f -u clever develop:master
+cd ./clevercloud-demo-zf-apigility-phinx && git push -f -u clever master
 ```
 
 ## Deploy the app

@@ -48,7 +48,7 @@ So let's start and create an Heroku application for your testing environment.
       * ```heroku config:set MYSQL_ADDON_PASSWORD=7920707c```
       * ```heroku config:set MYSQL_ADDON_USER=b4c07c7d524860```
       * ```heroku config:set WWWROOT=/public```
-  12. Now let's configure the **continuousphp Heroku Buildpacks**, type: ```heroku buildpacks:set https://github.com/continuousphp/heroku-buildpack-php -a heroku-demo-zf-apigility-phinx```
+  12. Now let's configure the **continuousphp Heroku Buildpacks**, type: ```heroku buildpacks:set https://github.com/continuousphp/heroku-buildpack-continuousphp -a heroku-demo-zf-apigility-phinx```
 
 Your Heroku app is now setup, please keep your **Heroku Token** to use later in this tutorial. Let's now set continuousphp.
 

@@ -1,16 +1,16 @@
 ---
 layout:         doc
-title:          "7.1.0-dev - Documentation"
+title:          "7.1.0 - Documentation"
 category:       "php"
 order:          1
-excerpt:        "PHP-7.1.0-dev support by continuousphp"
+excerpt:        "PHP-7.1.0 support by continuousphp"
 ---
 
 [PHP-7.1.0](http://www.php.net) is supported by continuousphp containers.
 
 ## Specification
 
-Our containers run PHP-7.1.0-dev with the following PHP extensions:
+Our containers run PHP-7.1.0 with the following PHP extensions:
 
 ### PHP Modules
 

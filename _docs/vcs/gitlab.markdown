@@ -3,7 +3,7 @@ layout:         doc
 title:          "GitLab - Documentation"
 category:       "vcs"
 logo:           gitlab
-order:          3
+order:          4
 excerpt:        "GitLab support on continuousphp"
 ---
 

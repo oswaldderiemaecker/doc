@@ -3,7 +3,7 @@ layout:         doc
 title:          "GitHub - Documentation"
 category:       "vcs"
 logo:           git-hub
-order:          1
+order:          2
 excerpt:        "GitHub support on continuousphp."
 ---
 

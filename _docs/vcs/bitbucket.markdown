@@ -3,7 +3,7 @@ layout:         doc
 title:          "Bitbucket - Documentation"
 category:       "vcs"
 logo:           bitbucket
-order:          2
+order:          3
 excerpt:        "Bitbucket support on continuousphp"
 ---
 

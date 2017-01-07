@@ -124,7 +124,6 @@ echo $PACKAGE_PATH
 
 mkdir ./heroku-demo-zf-apigility-phinx
 tar xzf $PACKAGE_PATH -C ./heroku-demo-zf-apigility-phinx
-cd ./heroku-demo-zf-apigility-phinx
 
 # Install Heroku CLI
 sudo apt-get -qq update

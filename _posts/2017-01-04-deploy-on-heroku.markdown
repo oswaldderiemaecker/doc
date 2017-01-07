@@ -7,6 +7,9 @@ image:          '/assets/2017-01-04/heroku.png'
 hasDescription: true
 categories:     tutorial
 ---
+
+![DEPLOY ON HEROKU](/assets/2017-01-04/heroku.png)
+
 This tutorial explains how to configure continuousphp to deploy a PHP application on Heroku.
 
 <!--more-->

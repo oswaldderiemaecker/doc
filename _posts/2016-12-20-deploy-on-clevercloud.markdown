@@ -7,6 +7,9 @@ image:          '/assets/2016-12-20/clevercloud.png'
 hasDescription: true
 categories:     tutorial
 ---
+
+![Deploy on Clever-Cloud](/assets/2016-12-20/clevercloud.png)
+
 This tutorial explains how to configure continuousphp to deploy a PHP application on Clever-Cloud.
 
 <!--more-->

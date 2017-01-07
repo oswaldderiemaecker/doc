@@ -117,6 +117,7 @@ These are key files to set-up your application installation, testing and deploym
       * Name: Push-to-Heroku
       * Apply to: push
       * In the Script box:
+
 ```bash
 # Print the Package Path and untar the package builded by continuousphp
 echo $PACKAGE_PATH

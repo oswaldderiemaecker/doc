@@ -126,8 +126,6 @@ mkdir ./heroku-demo-zf-apigility-phinx
 tar xzf $PACKAGE_PATH -C ./heroku-demo-zf-apigility-phinx
 cd ./heroku-demo-zf-apigility-phinx
 
-cd ./heroku-demo-zf-apigility-phinx && cat build.properties && env
-
 # Install Heroku CLI
 sudo apt-get -qq update
 sudo apt-get -qq install software-properties-common
@@ -143,6 +141,7 @@ heroku plugins:install heroku-builds
 # Empty the gitignore & Deploy the app
 cd ./heroku-demo-zf-apigility-phinx && rm -fv .gitignore && touch .gitignore && heroku builds:create --version "added foo feature" -a heroku-demo-zf-apigility-phinx
 ```
+
    iv\. In the **Environment Variables**, add a variable called **HEROKU_API_KEY** with the Heroku Token you got in the **Set up a new account** steps. **Ensure to click on the Secured Variable Checkbox**.
 
 ## Deploy the apps

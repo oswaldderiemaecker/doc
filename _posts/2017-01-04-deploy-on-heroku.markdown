@@ -40,9 +40,9 @@ So let's start and create an Heroku application for your testing environment.
   6. Type: export HEROKU_API_KEY=xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx 
   7. Let's create our Heroku app, type: ```heroku create -a heroku-demo-zf-apigility-phinx```
   8. Before creating a Free ClearDB mysql database, you first need to add your credit card details, goto the [Heroku Billing Dashboard](https://dashboard.heroku.com/account/billing)
-  9. To create a Free Ignite mysql database type: ```heroku addons:create cleardb:ignite --app heroku-demo-zf-apigility-phinx```
-  10. To get the database url, type: ```heroku config --app heroku-demo-zf-apigility-phinx | grep CLEARDB_DATABASE_URL``` 
-  11. Set the Heroku Config Variables:
+  9. To create a Free ClearDB mysql database type: ```heroku addons:create cleardb:ignite --app heroku-demo-zf-apigility-phinx```
+  10. To get the database URL, type: ```heroku config --app heroku-demo-zf-apigility-phinx | grep CLEARDB_DATABASE_URL``` 
+  11. Set the Heroku Config Variables from the database URL:
       * ```heroku config:set MYSQL_ADDON_DB=heroku_d09de4868a4db10```
       * ```heroku config:set MYSQL_ADDON_HOST=us-cdbr-iron-east-04.cleardb.net```
       * ```heroku config:set MYSQL_ADDON_PASSWORD=7920707c```

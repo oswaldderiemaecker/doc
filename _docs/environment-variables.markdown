@@ -12,6 +12,7 @@ continuousphp supports using environment variables at every stage of your builds
 * [When creating the Deployment Package](/documentation/environment-variables#when-creating-the-deployment-package)
 * [During the tests](/documentation/environment-variables#during-the-tests)
 * [During the deployment](/documentation/environment-variables#during-the-deployment)
+* [Built-in variables by continuousphp](/documentation/environment-variables#built-in-environment-variables)
 
 ## Encryption
 
@@ -49,3 +50,15 @@ Environment Variables :
 ## During the deployment
 
 You can use Environment Variables in the continuousphp [Script Deployment](/documentation/deployment/script#environment-variables).
+
+## Built-In Environment Variables
+
+continuousphp provides you with a set of built-in environment variables that you can use at every stage in your
+Pipeline :
+
+* ***CONTINUOUSPHP*** : continuousphp (can be used by your app to identify the environment)
+* ***CPHP_BUILD_ID*** : The ID of the current build
+* ***CPHP_GIT_COMMIT*** : The git commit ID of the current build
+* ***CPHP_GIT_REF*** : The git reference of the current build
+* ***CPHP_BUILT_BY*** : The username of the person who started the build
+* ***CPHP_PR_ID*** : The Pull Request number of the current build (empty if it's no Pull Request)

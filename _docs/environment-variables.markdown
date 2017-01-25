@@ -57,6 +57,7 @@ continuousphp provides you with a set of built-in environment variables that you
 Pipeline :
 
 * ***CONTINUOUSPHP*** : continuousphp (can be used by your app to identify the environment)
+* ***GITHUB_TOKEN*** : Your GitHub API token (if connected with GitHub)
 * ***CPHP_BUILD_ID*** : The ID of the current build
 * ***CPHP_GIT_COMMIT*** : The git commit ID of the current build
 * ***CPHP_GIT_REF*** : The git reference of the current build

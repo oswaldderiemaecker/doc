@@ -13,7 +13,7 @@ continuousphp uses the [official Oracle Linux Docker image](https://hub.docker.c
 An Oracle XE 11 container is available for each activity in your build. To enable it, simply add an environment variable `CPHP_SERVICE_ORACLE_XE_11` with an arbitrary value in your pipeline configuration. E.g. if you need Oracle in your Behat tests, go to the Testing Settings (step 2 of the pipeline) and add the environment variable to the Behat configuration.
 
 __The currently supported version is Oracle Express Edition 11.__
-__Our PHP testing container implement the OCI8 extension.__
+__Our PHP testing containers implement the OCI8 extension.__
 
 ## Connecting to Oracle-XE-11
 

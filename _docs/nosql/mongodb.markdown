@@ -27,4 +27,24 @@ Our PHP testing containers implement both the `mongo` and `mongodb` extensions.
 
 ## Connecting to MongoDB
 
+Like the mongoDB run into a dedicated container, each version have a specific local domain.
+
+<table>
+  <tr>
+    <td>mongo 2.4.x</td><td>mongo24</td> 
+  </tr> 
+  <tr>
+    <td>mongo 3.x</td><td>mongo3</td> 
+  </tr> 
+  <tr>
+    <td>mongo 3.0.x</td><td>mongo30</td> 
+  </tr> 
+  <tr>
+    <td>mongo 3.2.x</td><td>mongo32</td> 
+  </tr> 
+  <tr>
+    <td>mongo 3.4.x/td><td>mongo34</td> 
+  </tr> 
+</table>
+
 There are no Authentication settings.

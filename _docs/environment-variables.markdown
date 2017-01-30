@@ -63,3 +63,4 @@ Pipeline :
 * ***CPHP_GIT_REF*** : The git reference of the current build
 * ***CPHP_BUILT_BY*** : The username of the person who started the build
 * ***CPHP_PR_ID*** : The Pull Request number of the current build (empty if it's no Pull Request)
+* ***CPHP_TOKEN*** : Your continuousphp API token (can be used by the SDK to download packages e.g.)

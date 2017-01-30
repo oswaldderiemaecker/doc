@@ -1,12 +1,13 @@
 ---
 layout:         doc
-title:          "Firewall - Documentation"
-category:       "security"
-order:          10
+title:          "Firewall & Netowrk settings - Documentation"
+category:       "Firewall & Network settings"
+order:          20
 excerpt:        "Allowing continuousphp in your network"
 ---
 
-You need to allow these IPs address if you like to allow continuousphp on your network.
+The following IP addresses must be whitelisted in your firewall if you want to connect to continuousphp.
+This can be useful when ContinuousPHP Notification and Webhook try to reach your network.
 
 ```
 52.44.91.48

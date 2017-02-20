@@ -1,8 +1,8 @@
 ---
 layout:         doc
-title:          "Firewall & Netowrk settings - Documentation"
-category:       "Firewall & Network settings"
-order:          20
+title:          "Netowrk settings - Documentation"
+category:       "security"
+order:          1
 excerpt:        "Allowing continuousphp in your network"
 ---
 

@@ -7,6 +7,9 @@ image:          '/assets/2017-02-18/wordpress.png'
 hasDescription: true
 categories:     tutorial
 ---
+
+![WORDPRESS ELASTIC BEANSTALK DEPLOYMENT](/assets/2017-02-18/wordpress.png)
+
 The goal of this project is to have a WordPress environment that lets you develop, test, package and deploy an immutable WordPress on different environments like staging and production.
 
 <!--more-->
@@ -49,7 +52,7 @@ The goal of this project is to have a WordPress environment that lets you develo
 
 Have you ever been scared on clicking on that WordPress or plugins update button ?
 
-Have you ever wanted to have a staging environement for the validation of your latest development by your customers and to update the production with one click upon validation ?
+Have you ever wanted to have a staging environment for the validation of your latest development by your customers and to update the production with one click upon validation ?
 
 Have you ever wanted to have automated tests to ensure proper site function before deployments ?
 
@@ -96,7 +99,7 @@ This WordPress Repository includes the following files:
 * [php](https://github.com/continuousdemo/wordpress-eb-demo/blob/master/php/) with php configuration files
 * [behat.yml](https://github.com/continuousdemo/wordpress-eb-demo/blob/master/tests/behat.yml) with the Behat configuration
 
-These are key files to set-up your WordPress installation, development and deployment environement. Feel free to take a look at them to get a better understanding.
+These are key files to set-up your WordPress installation, development and deployment environment. Feel free to take a look at them to get a better understanding.
 
 ### Dependency management with composer
 

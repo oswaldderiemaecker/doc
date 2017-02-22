@@ -11,14 +11,8 @@ excerpt:        "Access & Permissions on continuousphp"
 
 continuousphp uses your team's settings on GitHub/Bitbucket/Gitlab to set permissions for your team members.
 
-### Creating a new project
-
-Only repository owners & admins can create a new Project on continuousphp.
-
-### Creating, modifying and deleting a Pipeline
-
-Only repository owners & admins can create, modify or delete Pipelines on a continuousphp Project.
-
-### Starting a Build
-
-Only users with Push access to the repository can start Builds on continuousphp.
+| Action                              | Needed Access Level                      |
+|-------------------------------------|------------------------------------------|
+| Create a new project                | Repository Owners & Admins               |
+| Create, modify or delete a Pipeline | Repository Owners & Admins               |
+| Start a Build                       | Users with Push access to the repository |

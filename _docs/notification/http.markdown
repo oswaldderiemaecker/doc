@@ -3,7 +3,7 @@ layout:         doc
 title:          "HTTP - Documentation"
 category:       "notification"
 logo:           http
-order:          3
+order:          4
 excerpt:        "Get notifications about your builds via HTTP requests."
 ---
 
@@ -24,6 +24,7 @@ Available events are :
 
 Notifications are sent as HTTP POST requests. The payload will have the following format:
 
+* ***pusher*** : Username of the pusher
 * ***state*** : in-progress&#124;complete
 * ***result*** : success&#124;failed&#124;warning
 * ***deployed*** : 2016-12-08T15:00:00+02:00

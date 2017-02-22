@@ -7,6 +7,9 @@ image:          '/assets/2017-02-18/wordpress.png'
 hasDescription: true
 categories:     tutorial
 ---
+
+![WORDPRESS ELASTIC BEANSTALK DEPLOYMENT](/assets/2017-02-18/wordpress.png)
+
 The goal of this project is to have a WordPress environment that lets you develop, test, package and deploy an immutable WordPress on different environments like staging and production.
 
 <!--more-->

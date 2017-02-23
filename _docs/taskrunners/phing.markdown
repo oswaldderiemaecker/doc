@@ -137,3 +137,8 @@ To load this property-file, you need to include it in your `build.xml` file :
     <property file="./build.properties" />
 </project>
 ```
+
+### Using Environment Variables in Phing Targets
+
+You can easily use Environment Variables in Phing Targets. If you specified a variable, let's say, `MY_ENV_VAR`, you
+can use it in a Phing target by calling it with `${env.MY_ENV_VAR}`.

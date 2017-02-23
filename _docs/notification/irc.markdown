@@ -3,7 +3,7 @@ layout:         doc
 title:          "IRC - Documentation"
 category:       "notification"
 logo:           irc
-order:          2
+order:          3
 excerpt:        "Get notifications about your builds on Slack."
 ---
 

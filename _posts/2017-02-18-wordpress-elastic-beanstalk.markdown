@@ -947,7 +947,7 @@ Let's modify our Dummy plugin at ./wp-content/plugins/dummy-plugin/dummy-plugin.
 git checkout develop
 git add ./wp-content/plugins/dummy-plugin/dummy-plugin.php
 git commit -m "Bumping our Dummy plugin version"
-git pusih origin develop
+git push origin develop
 ```
 
 Now, everytime you push to the develop branch, your develop pipeline is triggered and continuousphp builds, tests and deploys your WordPress upon a successful build.

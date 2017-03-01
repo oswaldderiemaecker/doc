@@ -41,7 +41,7 @@ So let's start and create a Clever-Cloud application for your testing environmen
 9. Fill in the name of your MySQL addon: **mysql-demo-zf-apigility-phinx**, and choose the zone that suits your needs.
 10. Upload your public SSH key, then click add
 11. Keep the environment variables, then click next
-12. Fork the [Sample Application](https://github.com/oswaldderiemaecker/clevercloud-demo-zf-apigility-phinx) 
+12. Fork the [Sample Application](https://github.com/continuousdemo/clevercloud-demo-zf-apigility-phinx) 
 13. Take note of the git remote & push command and run them to add the clever remote repository in order to deploy the Application for the first time
 14. Read the logs of the deployment
 15. Go to Application Information and take a note of the deployment URL.
@@ -56,7 +56,7 @@ git remote rm clever
 
 ### Prepare the Sample Application
 
-Let's configure continuousphp to deploy our [Sample Application](https://github.com/oswaldderiemaecker/clevercloud-demo-zf-apigility-phinx).
+Let's configure continuousphp to deploy our [Sample Application](https://github.com/continuousdemo/clevercloud-demo-zf-apigility-phinx).
 
 Because we are going to configure continuousphp in testing environment, we need to create a develop branch, for which we will create a deployment pipeline.
 
@@ -171,5 +171,6 @@ Now, everytime you push to the develop branch, your develop pipeline is triggere
 ## Notes
 
 * This tutorial is an example and should not be used as is for production use. 
+* A big Thank you to [Stéphane Jouvray](https://github.com/stephanejouvray) from [Interact-IV](http://www.interact-iv.com/) for the Apigility/ZF skeleton.
 
 If you like to know more about production configuration or have questions about this tutorial, don't hesitate to contact us using the chat button!
